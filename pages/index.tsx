@@ -16,6 +16,7 @@ import sportsPic from "../photos/317368540_827891218186591_4687860874442681310_n
 import headshotsPic from "../photos/315327595_815422346100145_4054141741932922377_n.jpg";
 import dannaPic from "../photos/316303021_820005485641831_2421918661459659589_n.jpg";
 import kadishPic from "../photos/279437970_532064315162065_56799331566712561_n.jpg";
+import ContactForm from "../components/ContactForm";
 
 const Home: React.FC = () => {
   return (
@@ -400,72 +401,7 @@ const Home: React.FC = () => {
               </div>
               <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                 <div className="mx-auto max-w-lg lg:max-w-none">
-                  <form
-                    action="https://getform.io/f/f3e0eb10-1f2f-4d53-a1cb-f5d4283cbe12"
-                    method="POST"
-                    className="grid grid-cols-1 gap-y-6"
-                  >
-                    <div>
-                      <label htmlFor="full-name" className="sr-only">
-                        Full name
-                      </label>
-                      <input
-                        type="text"
-                        name="full-name"
-                        id="full-name"
-                        autoComplete="name"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        placeholder="Full name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="sr-only">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="sr-only">
-                        Phone
-                      </label>
-                      <input
-                        type="text"
-                        name="phone"
-                        id="phone"
-                        autoComplete="tel"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        placeholder="Phone"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="sr-only">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        placeholder="Message"
-                        defaultValue={""}
-                      />
-                    </div>
-                    <div>
-                      <button
-                        type="submit"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </form>
+                  <ContactForm />
                 </div>
               </div>
             </div>

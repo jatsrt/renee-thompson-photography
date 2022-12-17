@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 import logo from "../public/logo.svg";
+import Notification from "./Notification";
 
 interface Props extends PropsWithChildren {
   image: any;
@@ -12,7 +13,7 @@ interface Props extends PropsWithChildren {
 
 const Layout: React.FC<Props> = ({ children, image }) => {
   return (
-    <>
+    <Notification>
       <header>
         <div className="relative overflow-hidden bg-white">
           <div className="mx-auto max-w-7xl">
@@ -144,11 +145,6 @@ const Layout: React.FC<Props> = ({ children, image }) => {
                     <span className="block xl:inline">Renee Thompson</span>{" "}
                     <span className="block xl:inline">Photography</span>
                   </h1>
-                  {/* <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                    qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                    occaecat fugiat aliqua.
-                  </p> */}
                 </div>
               </main>
             </div>
@@ -169,14 +165,12 @@ const Layout: React.FC<Props> = ({ children, image }) => {
           Footer
         </h2>
         <div className="mx-auto max-w-7xl px-4 pt-4 pb-8 sm:px-6 lg:px-8 lg:pt-8">
-          {/* <div className="mt-6 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between lg:mt-8"> */}
           <p className="mt-4 text-base text-gray-200 md:order-1 md:mt-0">
             &copy; 2023 Renee Thompson Photography. All rights reserved.
           </p>
-          {/* </div> */}
         </div>
       </footer>
-    </>
+    </Notification>
   );
 };
 
