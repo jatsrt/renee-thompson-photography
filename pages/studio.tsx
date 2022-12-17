@@ -4,8 +4,9 @@ import React from "react";
 import Layout from "../components/Layout";
 
 import bannerPic from "../photos/313425939_805546290421084_3205085087773398883_n.jpg";
+import { NextPageWithLayout } from "./_app";
 
-const Studio: React.FC = () => {
+const Studio: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -17,9 +18,13 @@ const Studio: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout image={bannerPic}></Layout>
+      <></>
     </>
   );
+};
+
+Studio.getLayout = function getLayout(page: React.ReactElement) {
+  return <Layout image={bannerPic}>{page}</Layout>;
 };
 
 export default Studio;

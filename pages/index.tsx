@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { FacebookIcon, InstagramIcon } from "../components/Icons";
 import Layout from "../components/Layout";
+import { NextPageWithLayout } from "./_app";
 
 import bannerPic from "../photos/314336153_810713513237695_5687237389817958517_n.jpg";
 import hsSeniorsPic from "../photos/315222280_814690526173327_3196118921171264871_n.jpg";
@@ -18,7 +19,7 @@ import dannaPic from "../photos/316303021_820005485641831_2421918661459659589_n.
 import kadishPic from "../photos/279437970_532064315162065_56799331566712561_n.jpg";
 import ContactForm from "../components/ContactForm";
 
-const Home: React.FC = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -30,7 +31,7 @@ const Home: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout image={bannerPic}>
+      <>
         <div
           className="bg-gradient-to-r from-stone-500 to-neutral-800"
           id="services"
@@ -421,9 +422,13 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-      </Layout>
+      </>
     </>
   );
+};
+
+Home.getLayout = function getLayout(page: React.ReactElement) {
+  return <Layout image={bannerPic}>{page}</Layout>;
 };
 
 export default Home;
