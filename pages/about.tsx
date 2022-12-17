@@ -15,8 +15,8 @@ const About: NextPageWithLayout = () => {
           name="description"
           content="Photographer and photgraphy studio in the Westborough, MA area."
         />
+        <link rel="icon" type="image/png" href="/icon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <></>
     </>
