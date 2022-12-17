@@ -1,4 +1,4 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, MapIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
@@ -349,6 +349,20 @@ const Home: React.FC = () => {
                       </dd>
                     </div>
                     <div className="mt-6">
+                      <dt className="sr-only">Get Directions</dt>
+                      <dd className="flex">
+                        <MapIcon
+                          className="h-6 w-6 flex-shrink-0 text-gray-400"
+                          aria-hidden="true"
+                        />
+                        <span className="ml-3">
+                          <a href="https://goo.gl/maps/FVCyciHyEk3qNGJP6">
+                            Get Directions
+                          </a>
+                        </span>
+                      </dd>
+                    </div>
+                    <div className="mt-3">
                       <dt className="sr-only">Phone number</dt>
                       <dd className="flex">
                         <PhoneIcon
