@@ -7,7 +7,7 @@ import Link from "next/link";
 import logo from "../public/logo.svg";
 import Notification from "./Notification";
 
-import bannerPic from "../photos/314336153_810713513237695_5687237389817958517_n.jpg";
+import bannerPic from "../public/photos/314336153_810713513237695_5687237389817958517_n.jpg";
 
 interface Props extends PropsWithChildren {
   image: any;

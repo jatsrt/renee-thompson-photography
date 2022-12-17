@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Layout from "../components/Layout";
 
-import bannerPic from "../photos/312938463_803624820613231_8719073102551821640_n.jpg";
+import bannerPic from "../public/photos/312938463_803624820613231_8719073102551821640_n.jpg";
 import { NextPageWithLayout } from "./_app";
 
 const About: NextPageWithLayout = () => {

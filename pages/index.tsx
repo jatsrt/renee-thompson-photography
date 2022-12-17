@@ -6,17 +6,17 @@ import { FacebookIcon, InstagramIcon } from "../components/Icons";
 import Layout from "../components/Layout";
 import { NextPageWithLayout } from "./_app";
 
-import bannerPic from "../photos/314336153_810713513237695_5687237389817958517_n.jpg";
-import hsSeniorsPic from "../photos/315222280_814690526173327_3196118921171264871_n.jpg";
-import weddingsPic from "../photos/302703504_616655996702896_2787140847235190438_n.jpg";
-import babyShowersPic from "../photos/306660878_624438829257946_8123035310907024595_n.jpg";
-import infantsPic from "../photos/313425939_805546290421084_3205085087773398883_n.jpg";
-import specialRequestsPic from "../photos/313871455_808183926823987_7868618937927618177_n.jpg";
-import locationsPic from "../photos/313943713_806537123655334_7795609401173884935_n.jpg";
-import sportsPic from "../photos/317368540_827891218186591_4687860874442681310_n.jpg";
-import headshotsPic from "../photos/315327595_815422346100145_4054141741932922377_n.jpg";
-import dannaPic from "../photos/316303021_820005485641831_2421918661459659589_n.jpg";
-import kadishPic from "../photos/279437970_532064315162065_56799331566712561_n.jpg";
+import bannerPic from "../public/photos/314336153_810713513237695_5687237389817958517_n.jpg";
+import hsSeniorsPic from "../public/photos/315222280_814690526173327_3196118921171264871_n.jpg";
+import weddingsPic from "../public/photos/302703504_616655996702896_2787140847235190438_n.jpg";
+import babyShowersPic from "../public/photos/306660878_624438829257946_8123035310907024595_n.jpg";
+import infantsPic from "../public/photos/313425939_805546290421084_3205085087773398883_n.jpg";
+import specialRequestsPic from "../public/photos/313871455_808183926823987_7868618937927618177_n.jpg";
+import locationsPic from "../public/photos/313943713_806537123655334_7795609401173884935_n.jpg";
+import sportsPic from "../public/photos/317368540_827891218186591_4687860874442681310_n.jpg";
+import headshotsPic from "../public/photos/315327595_815422346100145_4054141741932922377_n.jpg";
+import dannaPic from "../public/photos/316303021_820005485641831_2421918661459659589_n.jpg";
+import kadishPic from "../public/photos/279437970_532064315162065_56799331566712561_n.jpg";
 import ContactForm from "../components/ContactForm";
 
 const Home: NextPageWithLayout = () => {
@@ -337,8 +337,8 @@ const Home: NextPageWithLayout = () => {
                     Get in touch
                   </h2>
                   <p className="mt-3 text-lg leading-6 text-gray-500">
-                    Nullam risus blandit ac aliquam justo ipsum. Quam mauris
-                    volutpat massa dictumst amet. Sapien tortor lacus arcu.
+                    Any questions or comments, please contact me through the
+                    form on the right, email, or calling me.
                   </p>
                   <dl className="mt-8 text-base text-gray-500">
                     <div>
