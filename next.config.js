@@ -4,6 +4,14 @@ const nextConfig = {
   images: {
     // unoptimized: true,
   },
+  rewrites: async () => {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://reneethompson.smugmug.com/:path*",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
