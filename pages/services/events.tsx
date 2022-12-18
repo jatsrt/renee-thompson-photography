@@ -6,16 +6,24 @@ import Layout from "../../components/Layout";
 import { NextPageWithLayout } from "../_app";
 
 import bannerPic from "../../public/photos/events/Banner.jpg";
+import image1 from "../../public/photos/events/DSC00693.jpg";
+import image2 from "../../public/photos/events/DSC03137.jpg";
+import image3 from "../../public/photos/events/DSC03312.jpg";
+import image4 from "../../public/photos/events/DSC03569.jpg";
+import image5 from "../../public/photos/events/DSC03696.jpg";
+import image6 from "../../public/photos/events/DSC04400-Edit.jpg";
+import image7 from "../../public/photos/events/DSC09662-Edit.jpg";
+import image8 from "../../public/photos/events/DSC09828-2-Edit.jpg";
 
 const gallery = [
-  { source: require("../../public/photos/events/DSC00693.jpg") },
-  { source: require("../../public/photos/events/DSC03137.jpg") },
-  { source: require("../../public/photos/events/DSC03312.jpg") },
-  { source: require("../../public/photos/events/DSC03569.jpg") },
-  { source: require("../../public/photos/events/DSC03696.jpg") },
-  { source: require("../../public/photos/events/DSC04400-Edit.jpg") },
-  { source: require("../../public/photos/events/DSC09662-Edit.jpg") },
-  { source: require("../../public/photos/events/DSC09828-2-Edit.jpg") },
+  { source: image1 },
+  { source: image2 },
+  { source: image3 },
+  { source: image4 },
+  { source: image5 },
+  { source: image6 },
+  { source: image7 },
+  { source: image8 },
 ];
 
 const Events: NextPageWithLayout = () => {

@@ -6,16 +6,24 @@ import Layout from "../../components/Layout";
 import { NextPageWithLayout } from "../_app";
 
 import bannerPic from "../../public/photos/seniorsgrads/Banner.jpg";
+import image1 from "../../public/photos/seniorsgrads/DSC02146-Edit.jpg";
+import image2 from "../../public/photos/seniorsgrads/DSC09870-Edit.jpg";
+import image3 from "../../public/photos/seniorsgrads/DSC05820.jpg";
+import image4 from "../../public/photos/seniorsgrads/DSC08542-Edit-2.jpg";
+import image5 from "../../public/photos/seniorsgrads/DSC01176.jpg";
+import image6 from "../../public/photos/seniorsgrads/DSC01317.jpg";
+import image7 from "../../public/photos/seniorsgrads/DSC01158.jpg";
+import image8 from "../../public/photos/seniorsgrads/DSC07807.jpg";
 
 const gallery = [
-  { source: require("../../public/photos/seniorsgrads/DSC02146-Edit.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC09870-Edit.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC05820.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC08542-Edit-2.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC01176.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC01317.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC01158.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC07807.jpg") },
+  { source: image1 },
+  { source: image2 },
+  { source: image3 },
+  { source: image4 },
+  { source: image5 },
+  { source: image6 },
+  { source: image7 },
+  { source: image8 },
 ];
 
 const SeniorsGrads: NextPageWithLayout = () => {

@@ -6,14 +6,20 @@ import Layout from "../../components/Layout";
 import { NextPageWithLayout } from "../_app";
 
 import bannerPic from "../../public/photos/specialrequests/Banner.jpg";
+import image1 from "../../public/photos/specialrequests/DSC01872.jpg";
+import image2 from "../../public/photos/specialrequests/DSC03607.jpg";
+import image3 from "../../public/photos/specialrequests/DSC04643.jpg";
+import image4 from "../../public/photos/specialrequests/DSC07505-Edit.jpg";
+import image5 from "../../public/photos/specialrequests/DSC08595.jpg";
+import image6 from "../../public/photos/specialrequests/DSC08639-2.jpg";
 
 const gallery = [
-  { source: require("../../public/photos/specialrequests/DSC01872.jpg") },
-  { source: require("../../public/photos/specialrequests/DSC03607.jpg") },
-  { source: require("../../public/photos/specialrequests/DSC04643.jpg") },
-  { source: require("../../public/photos/specialrequests/DSC07505-Edit.jpg") },
-  { source: require("../../public/photos/specialrequests/DSC08595.jpg") },
-  { source: require("../../public/photos/specialrequests/DSC08639-2.jpg") },
+  { source: image1 },
+  { source: image2 },
+  { source: image3 },
+  { source: image4 },
+  { source: image5 },
+  { source: image6 },
 ];
 
 const SpecialRequests: NextPageWithLayout = () => {

@@ -6,14 +6,20 @@ import Layout from "../../components/Layout";
 import { NextPageWithLayout } from "../_app";
 
 import bannerPic from "../../public/photos/sports/Banner.jpg";
+import image1 from "../../public/photos/sports/DSC00971.jpg";
+import image2 from "../../public/photos/sports/DSC01042.jpg";
+import image3 from "../../public/photos/sports/DSC01717.jpg";
+import image4 from "../../public/photos/sports/DSC03955.jpg";
+import image5 from "../../public/photos/sports/DSC06964.jpg";
+import image6 from "../../public/photos/sports/DSC08185.jpg";
 
 const gallery = [
-  { source: require("../../public/photos/sports/DSC00971.jpg") },
-  { source: require("../../public/photos/sports/DSC01042.jpg") },
-  { source: require("../../public/photos/sports/DSC01717.jpg") },
-  { source: require("../../public/photos/sports/DSC03955.jpg") },
-  { source: require("../../public/photos/sports/DSC06964.jpg") },
-  { source: require("../../public/photos/sports/DSC08185.jpg") },
+  { source: image1 },
+  { source: image2 },
+  { source: image3 },
+  { source: image4 },
+  { source: image5 },
+  { source: image6 },
 ];
 
 const Sports: NextPageWithLayout = () => {

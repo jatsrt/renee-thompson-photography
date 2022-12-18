@@ -6,16 +6,24 @@ import Layout from "../../components/Layout";
 import { NextPageWithLayout } from "../_app";
 
 import bannerPic from "../../public/photos/families/Banner.jpg";
+import image1 from "../../public/photos/families/DSC01809.jpg";
+import image2 from "../../public/photos/families/DSC03320-Edit.jpg";
+import image3 from "../../public/photos/families/DSC03555.jpg";
+import image4 from "../../public/photos/families/DSC03992-Edit.jpg";
+import image5 from "../../public/photos/families/DSC04513-Edit.jpg";
+import image6 from "../../public/photos/families/DSC05281.jpg";
+import image7 from "../../public/photos/families/DSC07819.jpg";
+import image8 from "../../public/photos/families/DSC08758.jpg";
 
 const gallery = [
-  { source: require("../../public/photos/families/DSC01809.jpg") },
-  { source: require("../../public/photos/families/DSC03320-Edit.jpg") },
-  { source: require("../../public/photos/families/DSC03555.jpg") },
-  { source: require("../../public/photos/families/DSC03992-Edit.jpg") },
-  { source: require("../../public/photos/families/DSC04513-Edit.jpg") },
-  { source: require("../../public/photos/families/DSC05281.jpg") },
-  { source: require("../../public/photos/families/DSC07819.jpg") },
-  { source: require("../../public/photos/families/DSC08758.jpg") },
+  { source: image1 },
+  { source: image2 },
+  { source: image3 },
+  { source: image4 },
+  { source: image5 },
+  { source: image6 },
+  { source: image7 },
+  { source: image8 },
 ];
 
 const ChildrenFamilies: NextPageWithLayout = () => {

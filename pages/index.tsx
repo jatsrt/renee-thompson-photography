@@ -42,6 +42,7 @@ const Home: NextPageWithLayout = () => {
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={seniorsGradsPic}
                     alt="Seniors and Grads"
+                    placeholder="blur"
                   />
                   <Link
                     className="absolute inset-0 focus:outline-none"
@@ -62,6 +63,7 @@ const Home: NextPageWithLayout = () => {
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={eventsPic}
                     alt="Events"
+                    placeholder="blur"
                   />
                   <Link
                     className="absolute inset-0 focus:outline-none"
@@ -80,6 +82,7 @@ const Home: NextPageWithLayout = () => {
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={familiesPic}
                     alt="Children and Families"
+                    placeholder="blur"
                   />
                   <Link
                     className="absolute inset-0 focus:outline-none"
@@ -100,6 +103,7 @@ const Home: NextPageWithLayout = () => {
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={specialRequestsPic}
                     alt="Speial Requests"
+                    placeholder="blur"
                   />
                   <Link
                     className="absolute inset-0 focus:outline-none"
@@ -120,6 +124,7 @@ const Home: NextPageWithLayout = () => {
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={sportsPic}
                     alt="Sports"
+                    placeholder="blur"
                   />
                   <Link
                     className="absolute inset-0 focus:outline-none"
@@ -150,6 +155,7 @@ const Home: NextPageWithLayout = () => {
                       className="object-cover lg:h-full lg:w-full object-top"
                       src={dannaPic}
                       alt="Danna Garcia"
+                      placeholder="blur"
                     />
                   </div>
                 </div>
@@ -203,6 +209,7 @@ const Home: NextPageWithLayout = () => {
                       className="object-cover lg:h-full lg:w-full object-top"
                       src={kadishPic}
                       alt="Kadish"
+                      placeholder="blur"
                     />
                   </div>
                 </div>
@@ -251,6 +258,7 @@ const Home: NextPageWithLayout = () => {
                       className="object-cover lg:h-full lg:w-full object-top"
                       src={kadishPic}
                       alt="Kadish"
+                      placeholder="blur"
                     />
                   </div>
                 </div>

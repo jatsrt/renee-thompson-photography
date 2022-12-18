@@ -191,6 +191,7 @@ const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
               className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full object-right-top"
               src={image}
               alt="Banner Image"
+              placeholder="blur"
             />
           </div>
         </div>
