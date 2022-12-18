@@ -54,7 +54,8 @@ const Events: NextPageWithLayout = () => {
                     <Image
                       className="pointer-events-none object-cover"
                       src={item.source}
-                      alt="Seniors and Grads"
+                      alt="Events"
+                      placeholder="blur"
                     />
                   </div>
                 </li>

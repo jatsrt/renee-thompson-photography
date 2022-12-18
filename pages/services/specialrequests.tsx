@@ -50,7 +50,8 @@ const SpecialRequests: NextPageWithLayout = () => {
                     <Image
                       className="pointer-events-none object-cover"
                       src={item.source}
-                      alt="Seniors and Grads"
+                      alt="Special Requests"
+                      placeholder="blur"
                     />
                   </div>
                 </li>

@@ -55,6 +55,7 @@ const SeniorsGrads: NextPageWithLayout = () => {
                       className="pointer-events-none object-cover"
                       src={item.source}
                       alt="Seniors and Grads"
+                      placeholder="blur"
                     />
                   </div>
                 </li>
