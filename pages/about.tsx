@@ -24,7 +24,19 @@ const About: NextPageWithLayout = () => {
 };
 
 About.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout image={bannerPic}>{page}</Layout>;
+  return (
+    <Layout
+      image={bannerPic}
+      title={
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
+          <span className="block xl:inline">About Renee</span>
+        </h1>
+      }
+      summary={<></>}
+    >
+      {page}
+    </Layout>
+  );
 };
 
 export default About;

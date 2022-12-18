@@ -1,14 +1,12 @@
-import { EnvelopeIcon, MapIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
-import { FacebookIcon, InstagramIcon } from "../components/Icons";
 import Layout from "../components/Layout";
 import { NextPageWithLayout } from "./_app";
 
-import bannerPic from "../public/photos/314336153_810713513237695_5687237389817958517_n.jpg";
-import hsSeniorsPic from "../public/photos/315222280_814690526173327_3196118921171264871_n.jpg";
-import weddingsPic from "../public/photos/302703504_616655996702896_2787140847235190438_n.jpg";
+import bannerPic from "../public/photos/home/Banner.jpg";
+import seniorsGradsPic from "../public/photos/seniorsgrads/Banner.jpg";
+import weddingsPic from "../public/photos/weddingsevents/Banner.jpg";
 import babyShowersPic from "../public/photos/306660878_624438829257946_8123035310907024595_n.jpg";
 import infantsPic from "../public/photos/313425939_805546290421084_3205085087773398883_n.jpg";
 import specialRequestsPic from "../public/photos/313871455_808183926823987_7868618937927618177_n.jpg";
@@ -17,7 +15,7 @@ import sportsPic from "../public/photos/317368540_827891218186591_46878608744426
 import headshotsPic from "../public/photos/315327595_815422346100145_4054141741932922377_n.jpg";
 import dannaPic from "../public/photos/316303021_820005485641831_2421918661459659589_n.jpg";
 import kadishPic from "../public/photos/279437970_532064315162065_56799331566712561_n.jpg";
-import ContactForm from "../components/ContactForm";
+import Link from "next/link";
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -45,20 +43,20 @@ const Home: NextPageWithLayout = () => {
                 <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
-                    src={hsSeniorsPic}
-                    alt="High School Seniors"
+                    src={seniorsGradsPic}
+                    alt="Seniors and Grads"
                   />
-                  <button
-                    type="button"
+                  <Link
                     className="absolute inset-0 focus:outline-none"
+                    href="/services/seniorsgrads"
                   >
                     <span className="sr-only">
-                      View details for High School Seniors
+                      View details for Seniors and Grads
                     </span>
-                  </button>
+                  </Link>
                 </div>
                 <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  High School Seniors
+                  Seniors and Grads
                 </p>
               </li>
               <li className="relative">
@@ -66,7 +64,7 @@ const Home: NextPageWithLayout = () => {
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={weddingsPic}
-                    alt="Weddings"
+                    alt="Weddings and Events"
                   />
                   <button
                     type="button"
@@ -229,7 +227,7 @@ const Home: NextPageWithLayout = () => {
                       >
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
-                      <p className="mt-6 text-2xl font-medium text-white">
+                      <p className="mt-6 text-xl font-medium text-white">
                         Renee is a fantastic photographer! She made me feel so
                         comfortable and got some really awesome pictures. I 100%
                         recommend Renee if you are looking for any kind of
@@ -321,114 +319,40 @@ const Home: NextPageWithLayout = () => {
             </div>
           </div>
         </div>
-
-        <div
-          className="mb-4 bg-stone-100 border-t border-b border-stone-100 sm:mb-8 lg:mb-12"
-          id="contact"
-        >
-          <div className="relative bg-white">
-            <div className="absolute inset-0">
-              <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50" />
-            </div>
-            <div className="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
-              <div className="bg-stone-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
-                <div className="mx-auto max-w-lg">
-                  <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-                    Get in touch
-                  </h2>
-                  <p className="mt-3 text-lg leading-6 text-gray-500">
-                    Any questions or comments, please contact me through the
-                    form on the right, email, or calling me.
-                  </p>
-                  <dl className="mt-8 text-base text-gray-500">
-                    <div>
-                      <dt className="sr-only">Postal address</dt>
-                      <dd>
-                        <p className="font-bold">Studio Location:</p>
-                        <p>18 Lyman St, Suite 221</p>
-                        <p>Westborough, MA 01581</p>
-                      </dd>
-                    </div>
-                    <div className="mt-6">
-                      <dt className="sr-only">Get Directions</dt>
-                      <dd className="flex">
-                        <MapIcon
-                          className="h-6 w-6 flex-shrink-0 text-gray-400"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3">
-                          <a href="https://goo.gl/maps/FVCyciHyEk3qNGJP6">
-                            Get Directions
-                          </a>
-                        </span>
-                      </dd>
-                    </div>
-                    <div className="mt-3">
-                      <dt className="sr-only">Phone number</dt>
-                      <dd className="flex">
-                        <PhoneIcon
-                          className="h-6 w-6 flex-shrink-0 text-gray-400"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3">
-                          <a href="tel:15086853895">1 (508) 685-3895</a>
-                        </span>
-                      </dd>
-                    </div>
-                    <div className="mt-3">
-                      <dt className="sr-only">Email</dt>
-                      <dd className="flex">
-                        <EnvelopeIcon
-                          className="h-6 w-6 flex-shrink-0 text-gray-400"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-3">
-                          <a href="mailto:renee@reneethomnpson.photos">
-                            renee@reneethompson.photos
-                          </a>
-                        </span>
-                      </dd>
-                    </div>
-                    <div className="mt-3">
-                      <dt className="sr-only">Facebook</dt>
-                      <dd className="flex">
-                        <FacebookIcon className="h-6 w-6 flex-shrink-0 text-gray-400" />
-                        <span className="ml-3">
-                          <a href="https://www.facebook.com/ReneeThompsonPhotos">
-                            See us on Facebook
-                          </a>
-                        </span>
-                      </dd>
-                    </div>
-                    <div className="mt-3">
-                      <dt className="sr-only">Instagram</dt>
-                      <dd className="flex">
-                        <InstagramIcon className="h-6 w-6 flex-shrink-0 text-gray-400" />
-                        <span className="ml-3">
-                          <a href="https://www.instagram.com/ReneeThompsonPhotos">
-                            See us on Instagram
-                          </a>
-                        </span>
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-              <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
-                <div className="mx-auto max-w-lg lg:max-w-none">
-                  <ContactForm />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </>
     </>
   );
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout image={bannerPic}>{page}</Layout>;
+  return (
+    <Layout
+      image={bannerPic}
+      title={
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
+          <span className="block xl:inline">Hi, I&apos;m Renee</span>{" "}
+          <span className="block xl:inline text-gray-500 text-md sm:text-lg md:text-xl">
+            (she/her)
+          </span>
+        </h1>
+      }
+      summary={
+        <>
+          <p className="mt-4 text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16 lg:mt-8">
+            Your enthusiastic face behind the camera.{" "}
+          </p>
+          <p className="text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16">
+            Ready to capture your special moment and make you feel fabulous.
+          </p>
+          <p className="text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16">
+            It&apos;s nice to meet you!
+          </p>
+        </>
+      }
+    >
+      {page}
+    </Layout>
+  );
 };
 
 export default Home;

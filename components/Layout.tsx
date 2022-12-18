@@ -1,19 +1,26 @@
 import React, { PropsWithChildren } from "react";
 import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  FaceFrownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 import logo from "../public/logo.svg";
 import Notification from "./Notification";
 
 import bannerPic from "../public/photos/314336153_810713513237695_5687237389817958517_n.jpg";
+import { FacebookIcon, InstagramIcon } from "./Icons";
 
 interface Props extends PropsWithChildren {
   image: any;
+  title: React.ReactElement;
+  summary: React.ReactElement;
 }
 
-const Layout: React.FC<Props> = ({ children, image }) => {
+const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
   return (
     <Notification>
       <header>
@@ -58,22 +65,22 @@ const Layout: React.FC<Props> = ({ children, image }) => {
                     </div>
                     <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
                       <Link
-                        href="/#services"
+                        href="/"
                         className="font-medium text-gray-500 hover:text-gray-900"
                       >
-                        Services
+                        Home
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="font-medium text-gray-500 hover:text-gray-900"
+                      >
+                        Contact
                       </Link>
                       <Link
                         href="/studio"
                         className="font-medium text-gray-500 hover:text-gray-900"
                       >
                         Studio
-                      </Link>
-                      <Link
-                        href="/#contact"
-                        className="font-medium text-gray-500 hover:text-gray-900"
-                      >
-                        Contact Us
                       </Link>
                       <Link
                         href="/about"
@@ -112,22 +119,22 @@ const Layout: React.FC<Props> = ({ children, image }) => {
                       </div>
                       <div className="space-y-1 px-2 pt-2 pb-3">
                         <Link
-                          href="/#services"
+                          href="/"
                           className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                         >
-                          Services
+                          Home
+                        </Link>
+                        <Link
+                          href="/contact"
+                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                        >
+                          Contact
                         </Link>
                         <Link
                           href="/studio"
                           className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                         >
                           Studio
-                        </Link>
-                        <Link
-                          href="/#contact"
-                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-                        >
-                          Contact Us
                         </Link>
                         <Link
                           href="/about"
@@ -143,10 +150,8 @@ const Layout: React.FC<Props> = ({ children, image }) => {
 
               <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                 <div className="sm:text-center lg:text-left">
-                  <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                    <span className="block xl:inline">Renee Thompson</span>{" "}
-                    <span className="block xl:inline">Photography</span>
-                  </h1>
+                  {title}
+                  {summary}
                 </div>
               </main>
             </div>
@@ -166,9 +171,17 @@ const Layout: React.FC<Props> = ({ children, image }) => {
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
-        <div className="mx-auto max-w-7xl px-4 pt-4 pb-8 sm:px-6 lg:px-8 lg:pt-8">
-          <p className="mt-4 text-base text-gray-200 md:order-1 md:mt-0">
+        <div className="mx-auto max-w-7xl px-4 pt-4 pb-8 sm:px-6 lg:px-8 lg:pt-8 grid sm:grid-cols-2">
+          <p className="mt-4 text-base text-gray-200 md:order-0 md:mt-0">
             &copy; 2023 Renee Thompson Photography. All rights reserved.
+          </p>
+          <p className="mt-4 text-base text-gray-200 md:order-0 md:mt-0 items-end flex flex-row">
+            <a href="https://www.facebook.com/ReneeThompsonPhotos">
+              <FacebookIcon className="h-6 w-6 flex-shrink-0 text-gray-200" />
+            </a>
+            <a href="https://www.instagram.com/ReneeThompsonPhotos">
+              <InstagramIcon className="h-6 w-6 flex-shrink-0 text-gray-200 sm:ml-8" />
+            </a>
           </p>
         </div>
       </footer>
