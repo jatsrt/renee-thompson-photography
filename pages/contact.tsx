@@ -21,7 +21,7 @@ const Contact: NextPageWithLayout = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div
-        className="mb-4 bg-stone-100 border-t border-b border-stone-100 sm:mb-8 lg:mb-12"
+        className="bg-slate-100 border-t border-b border-slate-100"
         id="contact"
       >
         <div className="relative bg-white">
@@ -29,15 +29,14 @@ const Contact: NextPageWithLayout = () => {
             <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50" />
           </div>
           <div className="relative mx-auto max-w-7xl lg:grid lg:grid-cols-5">
-            <div className="bg-stone-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+            <div className="bg-slate-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
               <div className="mx-auto max-w-lg">
                 <dl className="mt-8 text-base text-gray-500">
                   <div>
                     <dt className="sr-only">Postal address</dt>
                     <dd>
-                      <p className="font-bold">
-                        Renee Thompson Photography Studio:
-                      </p>
+                      <p className="font-bold">Renee Thompson Photography</p>
+                      <p className="font-bold">Studio:</p>
                       <p>18 Lyman St, Suite 221</p>
                       <p>Westborough, MA 01581</p>
                     </dd>

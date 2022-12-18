@@ -198,7 +198,10 @@ const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
       </header>
       <main>{children}</main>
 
-      <footer className="bg-stone-500" aria-labelledby="footer-heading">
+      <footer
+        className="bg-gradient-to-r from-zinc-500 to-slate-800"
+        aria-labelledby="footer-heading"
+      >
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>

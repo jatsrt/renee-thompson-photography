@@ -40,7 +40,7 @@ const ChildrenFamilies: NextPageWithLayout = () => {
       </Head>
       <>
         <div
-          className="bg-gradient-to-r from-stone-500 to-neutral-800"
+          className="bg-gradient-to-r from-zinc-500 to-slate-800"
           id="services"
         >
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">

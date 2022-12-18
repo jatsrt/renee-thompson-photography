@@ -28,7 +28,7 @@ const Home: NextPageWithLayout = () => {
       </Head>
       <>
         <div
-          className="bg-gradient-to-r from-stone-500 to-neutral-800"
+          className="bg-gradient-to-r from-zinc-500 to-slate-800  "
           id="services"
         >
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
@@ -141,131 +141,91 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
 
-        <div className="bg-white pt-16 lg:py-24">
-          <div className="bg-stone-600 pb-16 lg:relative lg:z-10 lg:pb-0">
-            <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
-              <div className="relative lg:-my-8">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
-                />
-                <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:h-full lg:p-0">
-                  <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-10 lg:aspect-none lg:h-full">
-                    <Image
-                      className="object-cover lg:h-full lg:w-full object-top"
-                      src={review1}
-                      alt="Danna Garcia"
-                      placeholder="blur"
-                    />
-                  </div>
+        <section className="bg-slate-800">
+          <div className="mx-auto max-w-7xl md:grid md:grid-cols-2 md:px-6 lg:px-8">
+            <div className="py-12 px-4 sm:px-6 md:flex md:flex-col md:border-r md:border-slate-900 md:py-16 md:pl-0 md:pr-10 lg:pr-16">
+              <blockquote className="mt-6 md:flex md:flex-grow md:flex-col">
+                <div className="relative text-lg font-medium text-white md:flex-grow">
+                  <svg
+                    className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-slate-600"
+                    fill="currentColor"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  >
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p className="relative">
+                    Renee is a fantastic photographer! She made me feel so
+                    comfortable and got some really awesome pictures. I 100%
+                    recommend Renee if you are looking for any kind of
+                    photography, she did my senior pictures and they turned out
+                    stunning.
+                  </p>
                 </div>
-              </div>
-              <div className="mt-12 lg:col-span-2 lg:m-0 lg:pl-8">
-                <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
-                  <blockquote>
-                    <div>
-                      <svg
-                        className="h-12 w-12 text-white opacity-25"
-                        fill="currentColor"
-                        viewBox="0 0 32 32"
-                        aria-hidden="true"
-                      >
-                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                      </svg>
-                      <p className="mt-6 text-xl font-medium text-white">
-                        Renee is a fantastic photographer! She made me feel so
-                        comfortable and got some really awesome pictures. I 100%
-                        recommend Renee if you are looking for any kind of
-                        photography, she did my senior pictures and they turned
-                        out stunning.
-                      </p>
+                <footer className="mt-8">
+                  <div className="flex items-start">
+                    <div className="inline-flex flex-shrink-0 rounded-full border-2 border-white">
+                      <Image
+                        className="inline-block h-14 w-14 rounded-full object-cover object-top"
+                        src={review1}
+                        alt="Danna Garcia"
+                      />
                     </div>
-                    <footer className="mt-6">
-                      <p className="text-base font-medium text-white">
-                        Danna Garcia - Student
-                      </p>
-                      <p className="text-base font-medium text-indigo-100">
-                        Westborough High Class of &apos;23
-                      </p>
-                    </footer>
-                  </blockquote>
+                    <div className="ml-4">
+                      <div className="text-base font-medium text-white">
+                        Danna Garcia
+                      </div>
+                      <div className="text-base font-medium text-slate-200">
+                        Student, Westborough High School &apos;23
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </blockquote>
+            </div>
+            <div className="border-t-2 border-slate-900 py-12 px-4 sm:px-6 md:border-t-0 md:border-l md:py-16 md:pr-0 md:pl-10 lg:pl-16">
+              <blockquote className="mt-6 md:flex md:flex-grow md:flex-col">
+                <div className="relative text-lg font-medium text-white md:flex-grow">
+                  <svg
+                    className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-slate-600"
+                    fill="currentColor"
+                    viewBox="0 0 32 32"
+                  >
+                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                  </svg>
+                  <p className="relative">
+                    Renee is truly a gifted photographer of people. She has
+                    taken pictures of both my daughters and somehow magically
+                    brings each of their personalities into the pictures. Some
+                    of my all time favorite photos of the girls are from Renee.
+                    She is an amazing photographer, and I couldn&apos;t be
+                    happier with the pictures. I would book her again in a
+                    heartbeat!
+                  </p>
                 </div>
-              </div>
+                <footer className="mt-8">
+                  <div className="flex items-start">
+                    <div className="inline-flex flex-shrink-0 rounded-full border-2 border-white">
+                      <Image
+                        className="inline-block h-14 w-14 rounded-full object-cover object-top"
+                        src={review2}
+                        alt="Stacey Kadish"
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <div className="text-base font-medium text-white">
+                        Stacey Kadish
+                      </div>
+                      <div className="text-base font-medium text-slate-200">
+                        Mom, Westborough High Class of &apos;22
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </blockquote>
             </div>
           </div>
-        </div>
-
-        <div className="bg-white pt-16 lg:py-24">
-          <div className="bg-stone-600 pb-16 lg:relative lg:z-10 lg:pb-0">
-            <div className="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-8 lg:px-8">
-              <div className="visible lg:hidden relative lg:-my-8">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
-                />
-                <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:h-full lg:p-0">
-                  <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-10 lg:aspect-none lg:h-full">
-                    <Image
-                      className="object-cover lg:h-full lg:w-full object-top"
-                      src={review2}
-                      alt="Kadish"
-                      placeholder="blur"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-12 lg:col-span-2 lg:m-0 lg:pl-8">
-                <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
-                  <blockquote>
-                    <div>
-                      <svg
-                        className="h-12 w-12 text-white opacity-25"
-                        fill="currentColor"
-                        viewBox="0 0 32 32"
-                        aria-hidden="true"
-                      >
-                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                      </svg>
-                      <p className="mt-6 text-2xl font-medium text-white">
-                        Renee is truly a gifted photographer of people. She has
-                        taken pictures of both my daughters and somehow
-                        magically brings each of their personalities into the
-                        pictures. Some of my all time favorite photos of the
-                        girls are from Renee. She is an amazing photographer,
-                        and I couldn&apos;t be happier with the pictures. I
-                        would book her again in a heartbeat!
-                      </p>
-                    </div>
-                    <footer className="mt-6">
-                      <p className="text-base font-medium text-white">
-                        Stacey Kadish - Mom
-                      </p>
-                      <p className="text-base font-medium text-indigo-100">
-                        Westborough High Class of &apos;22
-                      </p>
-                    </footer>
-                  </blockquote>
-                </div>
-              </div>
-              <div className="invisible lg:visible relative lg:-my-8">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
-                />
-                <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:h-full lg:p-0">
-                  <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-10 lg:aspect-none lg:h-full">
-                    <Image
-                      className="object-cover lg:h-full lg:w-full object-top"
-                      src={review2}
-                      alt="Kadish"
-                      placeholder="blur"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
       </>
     </>
   );
