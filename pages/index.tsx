@@ -8,7 +8,7 @@ import bannerPic from "../public/photos/home/Banner.jpg";
 import seniorsGradsPic from "../public/photos/seniorsgrads/Banner.jpg";
 import eventsPic from "../public/photos/events/Banner.jpg";
 import familiesPic from "../public/photos/families/Banner.jpg";
-import specialRequestsPic from "../public/photos/313871455_808183926823987_7868618937927618177_n.jpg";
+import specialRequestsPic from "../public/photos/specialrequests/Banner.jpg";
 import locationsPic from "../public/photos/313943713_806537123655334_7795609401173884935_n.jpg";
 import sportsPic from "../public/photos/317368540_827891218186591_4687860874442681310_n.jpg";
 import headshotsPic from "../public/photos/315327595_815422346100145_4054141741932922377_n.jpg";
@@ -105,14 +105,14 @@ const Home: NextPageWithLayout = () => {
                     src={specialRequestsPic}
                     alt="Speial Requests"
                   />
-                  <button
-                    type="button"
+                  <Link
                     className="absolute inset-0 focus:outline-none"
+                    href="/services/specialrequests"
                   >
                     <span className="sr-only">
-                      View details for Special Requests
+                      View details for special requests
                     </span>
-                  </button>
+                  </Link>
                 </div>
                 <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
                   Special Requests
@@ -323,7 +323,7 @@ Home.getLayout = function getLayout(page: React.ReactElement) {
           <p className="text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16">
             Ready to capture your special moment and make you feel fabulous.
           </p>
-          <p className="text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16">
+          <p className="text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16 mt-4 italic">
             It&apos;s nice to meet you!
           </p>
         </>
