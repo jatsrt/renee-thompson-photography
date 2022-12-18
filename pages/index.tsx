@@ -9,9 +9,7 @@ import seniorsGradsPic from "../public/photos/seniorsgrads/Banner.jpg";
 import eventsPic from "../public/photos/events/Banner.jpg";
 import familiesPic from "../public/photos/families/Banner.jpg";
 import specialRequestsPic from "../public/photos/specialrequests/Banner.jpg";
-import locationsPic from "../public/photos/313943713_806537123655334_7795609401173884935_n.jpg";
-import sportsPic from "../public/photos/317368540_827891218186591_4687860874442681310_n.jpg";
-import headshotsPic from "../public/photos/315327595_815422346100145_4054141741932922377_n.jpg";
+import sportsPic from "../public/photos/sports/Banner.jpg";
 import dannaPic from "../public/photos/316303021_820005485641831_2421918661459659589_n.jpg";
 import kadishPic from "../public/photos/279437970_532064315162065_56799331566712561_n.jpg";
 import Link from "next/link";
@@ -36,7 +34,7 @@ const Home: NextPageWithLayout = () => {
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
             <ul
               role="list"
-              className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8"
+              className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-8"
             >
               <li className="relative">
                 <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
@@ -50,7 +48,7 @@ const Home: NextPageWithLayout = () => {
                     href="/services/seniorsgrads"
                   >
                     <span className="sr-only">
-                      View details for Seniors and Grads
+                      View details for seniors and grads
                     </span>
                   </Link>
                 </div>
@@ -69,13 +67,11 @@ const Home: NextPageWithLayout = () => {
                     className="absolute inset-0 focus:outline-none"
                     href="/services/specialevents"
                   >
-                    <span className="sr-only">
-                      View details for special events
-                    </span>
+                    <span className="sr-only">View details for events</span>
                   </Link>
                 </div>
                 <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Special Events
+                  Events
                 </p>
               </li>
               <li className="relative">
@@ -122,54 +118,18 @@ const Home: NextPageWithLayout = () => {
                 <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
-                    src={locationsPic}
-                    alt="Location Shoots"
-                  />
-                  <button
-                    type="button"
-                    className="absolute inset-0 focus:outline-none"
-                  >
-                    <span className="sr-only">View details for Weddings</span>
-                  </button>
-                </div>
-                <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Location Portraits
-                </p>
-              </li>
-              <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                  <Image
-                    className="pointer-events-none object-cover group-hover:opacity-75"
                     src={sportsPic}
-                    alt="Sports Action"
+                    alt="Sports"
                   />
-                  <button
-                    type="button"
+                  <Link
                     className="absolute inset-0 focus:outline-none"
+                    href="/services/sports"
                   >
-                    <span className="sr-only">View details for Sports</span>
-                  </button>
+                    <span className="sr-only">View details for sports</span>
+                  </Link>
                 </div>
                 <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Sports Action
-                </p>
-              </li>
-              <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                  <Image
-                    className="pointer-events-none object-cover group-hover:opacity-75"
-                    src={headshotsPic}
-                    alt="Headshots"
-                  />
-                  <button
-                    type="button"
-                    className="absolute inset-0 focus:outline-none"
-                  >
-                    <span className="sr-only">View details for Headshots</span>
-                  </button>
-                </div>
-                <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Professional Headshots
+                  Sports
                 </p>
               </li>
             </ul>
