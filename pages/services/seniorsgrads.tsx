@@ -22,7 +22,7 @@ const SeniorsGrads: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Renee Thompsonn Photography: About</title>
+        <title>Seniors and Grads</title>
         <meta
           name="description"
           content="Photographer and photgraphy studio in the Westborough, MA area."

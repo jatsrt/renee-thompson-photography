@@ -6,9 +6,8 @@ import { NextPageWithLayout } from "./_app";
 
 import bannerPic from "../public/photos/home/Banner.jpg";
 import seniorsGradsPic from "../public/photos/seniorsgrads/Banner.jpg";
-import weddingsPic from "../public/photos/weddingsevents/Banner.jpg";
-import babyShowersPic from "../public/photos/306660878_624438829257946_8123035310907024595_n.jpg";
-import infantsPic from "../public/photos/313425939_805546290421084_3205085087773398883_n.jpg";
+import eventsPic from "../public/photos/events/Banner.jpg";
+import familiesPic from "../public/photos/families/Banner.jpg";
 import specialRequestsPic from "../public/photos/313871455_808183926823987_7868618937927618177_n.jpg";
 import locationsPic from "../public/photos/313943713_806537123655334_7795609401173884935_n.jpg";
 import sportsPic from "../public/photos/317368540_827891218186591_4687860874442681310_n.jpg";
@@ -63,60 +62,40 @@ const Home: NextPageWithLayout = () => {
                 <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
-                    src={weddingsPic}
-                    alt="Weddings and Events"
+                    src={eventsPic}
+                    alt="Sepcial Events"
                   />
-                  <button
-                    type="button"
+                  <Link
                     className="absolute inset-0 focus:outline-none"
+                    href="/services/specialevents"
                   >
                     <span className="sr-only">
-                      View details for Weddings and Events
+                      View details for special events
                     </span>
-                  </button>
+                  </Link>
                 </div>
                 <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Weddings and Events
+                  Special Events
                 </p>
               </li>
               <li className="relative">
                 <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
-                    src={babyShowersPic}
-                    alt="Baby Showers"
+                    src={familiesPic}
+                    alt="Children and Families"
                   />
-                  <button
-                    type="button"
+                  <Link
                     className="absolute inset-0 focus:outline-none"
+                    href="/services/childrenfamilies"
                   >
                     <span className="sr-only">
-                      View details for Baby Showers
+                      View details for children and families
                     </span>
-                  </button>
+                  </Link>
                 </div>
                 <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Baby Showers
-                </p>
-              </li>
-              <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                  <Image
-                    className="pointer-events-none object-cover group-hover:opacity-75"
-                    src={infantsPic}
-                    alt="Infants, Toddlers and Children"
-                  />
-                  <button
-                    type="button"
-                    className="absolute inset-0 focus:outline-none"
-                  >
-                    <span className="sr-only">
-                      View details for Infant, Toddlers and Children
-                    </span>
-                  </button>
-                </div>
-                <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-300">
-                  Infants, Toddlers, and Children
+                  Children and Families
                 </p>
               </li>
               <li className="relative">

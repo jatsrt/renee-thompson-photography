@@ -10,7 +10,7 @@ const About: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Renee Thompsonn Photography: About</title>
+        <title>About Renee</title>
         <meta
           name="description"
           content="Photographer and photgraphy studio in the Westborough, MA area."

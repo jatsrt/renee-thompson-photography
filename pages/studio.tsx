@@ -3,14 +3,14 @@ import Head from "next/head";
 import React from "react";
 import Layout from "../components/Layout";
 
-import bannerPic from "../public/photos/313425939_805546290421084_3205085087773398883_n.jpg";
+import bannerPic from "../public/photos/316303021_820005485641831_2421918661459659589_n.jpg";
 import { NextPageWithLayout } from "./_app";
 
 const Studio: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Renee Thompsonn Photography: Studio</title>
+        <title>Studio Sessions and Rentals</title>
         <meta
           name="description"
           content="Photographer and photgraphy studio in the Westborough, MA area."
