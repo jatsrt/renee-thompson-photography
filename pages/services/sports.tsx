@@ -8,7 +8,6 @@ import { NextPageWithLayout } from "../_app";
 import bannerPic from "../../public/photos/sports/Banner.jpg";
 
 const gallery = [
-  { source: require("../../public/photos/sports/DSC00115.jpg") },
   { source: require("../../public/photos/sports/DSC00971.jpg") },
   { source: require("../../public/photos/sports/DSC01042.jpg") },
   { source: require("../../public/photos/sports/DSC01717.jpg") },
@@ -70,7 +69,7 @@ Sports.getLayout = function getLayout(page: React.ReactElement) {
       summary={
         <>
           <p className="mt-4 text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16 lg:mt-8">
-            This time in your life is monumental. I am here to help you shine!
+            Determination, grit, and team spirit. Let&apos;s GO!
           </p>
         </>
       }

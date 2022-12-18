@@ -61,11 +61,11 @@ const Home: NextPageWithLayout = () => {
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={eventsPic}
-                    alt="Sepcial Events"
+                    alt="Events"
                   />
                   <Link
                     className="absolute inset-0 focus:outline-none"
-                    href="/services/specialevents"
+                    href="/services/events"
                   >
                     <span className="sr-only">View details for events</span>
                   </Link>

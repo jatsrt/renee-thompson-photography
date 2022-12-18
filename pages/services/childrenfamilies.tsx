@@ -71,7 +71,7 @@ ChildrenFamilies.getLayout = function getLayout(page: React.ReactElement) {
       summary={
         <>
           <p className="mt-4 text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16 lg:mt-8">
-            This time in your life is monumental. I am here to help you shine!
+            Capturing life, love and happiness is where it&apos;s at!
           </p>
         </>
       }

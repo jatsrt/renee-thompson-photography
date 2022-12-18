@@ -9,8 +9,8 @@ import bannerPic from "../../public/photos/seniorsgrads/Banner.jpg";
 
 const gallery = [
   { source: require("../../public/photos/seniorsgrads/DSC02146-Edit.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC02381-Edit-2.jpg") },
-  { source: require("../../public/photos/seniorsgrads/DSC02313-Edit.jpg") },
+  { source: require("../../public/photos/seniorsgrads/DSC09870-Edit.jpg") },
+  { source: require("../../public/photos/seniorsgrads/DSC05820.jpg") },
   { source: require("../../public/photos/seniorsgrads/DSC08542-Edit-2.jpg") },
   { source: require("../../public/photos/seniorsgrads/DSC01176.jpg") },
   { source: require("../../public/photos/seniorsgrads/DSC01317.jpg") },

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
+  BellIcon,
+  CheckIcon,
   FaceFrownIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -88,6 +90,20 @@ const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
                       >
                         About
                       </Link>
+                      <Link
+                        href="https://www.facebook.com/ReneeThompsonPhotos"
+                        className="font-medium text-gray-500 hover:text-gray-900"
+                        target="_blank"
+                      >
+                        Facebook
+                      </Link>
+                      <Link
+                        href="https://www.instagram.com/ReneeThompsonPhotos"
+                        className="font-medium text-gray-500 hover:text-gray-900"
+                        target="_blank"
+                      >
+                        Instagram
+                      </Link>
                     </div>
                   </nav>
                 </div>
@@ -142,6 +158,20 @@ const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
                         >
                           About
                         </Link>
+                        <Link
+                          href="https://www.facebook.com/ReneeThompsonPhotos"
+                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                          target="_blank"
+                        >
+                          Facebook
+                        </Link>
+                        <Link
+                          href="https://www.instagram.com/ReneeThompsonPhotos"
+                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                          target="_blank"
+                        >
+                          Instagram
+                        </Link>
                       </div>
                     </div>
                   </Popover.Panel>
@@ -176,12 +206,18 @@ const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
             &copy; 2023 Renee Thompson Photography. All rights reserved.
           </p>
           <p className="mt-4 text-base text-gray-200 md:order-0 md:mt-0 items-end flex flex-row">
-            <a href="https://www.facebook.com/ReneeThompsonPhotos">
+            <Link
+              href="https://www.facebook.com/ReneeThompsonPhotos"
+              target="_blank"
+            >
               <FacebookIcon className="h-6 w-6 flex-shrink-0 text-gray-200" />
-            </a>
-            <a href="https://www.instagram.com/ReneeThompsonPhotos">
+            </Link>
+            <Link
+              href="https://www.instagram.com/ReneeThompsonPhotos"
+              target="_blank"
+            >
               <InstagramIcon className="h-6 w-6 flex-shrink-0 text-gray-200 sm:ml-8" />
-            </a>
+            </Link>
           </p>
         </div>
       </footer>
