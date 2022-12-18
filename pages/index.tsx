@@ -10,8 +10,8 @@ import eventsPic from "../public/photos/events/Banner.jpg";
 import familiesPic from "../public/photos/families/Banner.jpg";
 import specialRequestsPic from "../public/photos/specialrequests/Banner.jpg";
 import sportsPic from "../public/photos/sports/Banner.jpg";
-import dannaPic from "../public/photos/316303021_820005485641831_2421918661459659589_n.jpg";
-import kadishPic from "../public/photos/279437970_532064315162065_56799331566712561_n.jpg";
+import review1 from "../public/photos/home/Review1.jpg";
+import review2 from "../public/photos/home/Review2.jpg";
 import Link from "next/link";
 
 const Home: NextPageWithLayout = () => {
@@ -153,7 +153,7 @@ const Home: NextPageWithLayout = () => {
                   <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-10 lg:aspect-none lg:h-full">
                     <Image
                       className="object-cover lg:h-full lg:w-full object-top"
-                      src={dannaPic}
+                      src={review1}
                       alt="Danna Garcia"
                       placeholder="blur"
                     />
@@ -207,7 +207,7 @@ const Home: NextPageWithLayout = () => {
                   <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-10 lg:aspect-none lg:h-full">
                     <Image
                       className="object-cover lg:h-full lg:w-full object-top"
-                      src={kadishPic}
+                      src={review2}
                       alt="Kadish"
                       placeholder="blur"
                     />
@@ -256,7 +256,7 @@ const Home: NextPageWithLayout = () => {
                   <div className="aspect-w-10 aspect-h-6 overflow-hidden rounded-xl shadow-xl sm:aspect-w-16 sm:aspect-h-10 lg:aspect-none lg:h-full">
                     <Image
                       className="object-cover lg:h-full lg:w-full object-top"
-                      src={kadishPic}
+                      src={review2}
                       alt="Kadish"
                       placeholder="blur"
                     />
