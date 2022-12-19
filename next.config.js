@@ -7,8 +7,9 @@ const nextConfig = {
   rewrites: async () => {
     return [
       {
-        source: "/:path*",
-        destination: "https://reneethompson.smugmug.com/:path*",
+        source: "/Private-Galleries/:path*",
+        destination:
+          "https://reneethompson.smugmug.com/Private-Galleries/:path*",
       },
     ];
   },
