@@ -4,12 +4,13 @@ const nextConfig = {
   images: {
     // unoptimized: true,
   },
-  rewrites: async () => {
+  redirects: async () => {
     return [
       {
         source: "/Private-Galleries/:path*",
         destination:
           "https://reneethompson.smugmug.com/Private-Galleries/:path*",
+        permanent: false,
       },
     ];
   },
