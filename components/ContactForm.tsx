@@ -1,84 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import { NotificationContext } from "./Notification";
+import { useForm, ValidationError } from "@formspree/react";
+import { stat } from "fs";
 
 const ContactForm: React.FC = () => {
   const { setMsg, setShow } = React.useContext(NotificationContext);
+  const [state, handleSubmit] = useForm("mnqyajgq");
 
-  const [status, setStatus] = React.useState({
-    submitted: false,
-    submitting: false,
-    info: { error: false, msg: "" },
-  });
-  const [inputs, setInputs] = React.useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleServerResponse = (ok: boolean, msg: string) => {
-    if (ok) {
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: false, msg: msg },
+  useEffect(() => {
+    if (!state.submitting && state.succeeded) {
+      setMsg({
+        title: "Success",
+        body: "Thank you, your message has been submitted.",
       });
-      setInputs({
-        fullName: "",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } else {
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: true, msg: msg },
-      });
+      setShow(true);
     }
-    setMsg({ title: ok ? "Success" : "Error", body: msg });
-    setShow(true);
-  };
-
-  const handleOnSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
-    axios({
-      method: "POST",
-      url: "https://formspree.io/f/mnqyajgq",
-      data: inputs,
-    })
-      .then((response) => {
-        handleServerResponse(
-          true,
-          "Thank you, your message has been submitted."
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-        handleServerResponse(false, error.response.data.error);
-      });
-  };
-
-  const handleOnChange: React.ChangeEventHandler<
-    HTMLInputElement | HTMLTextAreaElement
-  > = (e) => {
-    e.persist();
-    setInputs((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }));
-    setStatus({
-      submitted: false,
-      submitting: false,
-      info: { error: false, msg: "" },
-    });
-  };
+  }, [setMsg, setShow, state.submitting, state.succeeded]);
 
   return (
     <form
-      onSubmit={handleOnSubmit}
+      onSubmit={handleSubmit}
       method="POST"
       className="grid grid-cols-1 gap-y-6"
     >
@@ -93,9 +35,13 @@ const ContactForm: React.FC = () => {
           autoComplete="name"
           className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
           placeholder="Full name"
-          onChange={handleOnChange}
           required
-          value={inputs.fullName}
+        />
+        <ValidationError
+          field="fullName"
+          prefix="Full name"
+          errors={state.errors}
+          className="mt-2 text-sm text-red-600"
         />
       </div>
       <div>
@@ -109,9 +55,13 @@ const ContactForm: React.FC = () => {
           autoComplete="email"
           className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
           placeholder="Email"
-          onChange={handleOnChange}
           required
-          value={inputs.email}
+        />
+        <ValidationError
+          field="email"
+          prefix="Email"
+          errors={state.errors}
+          className="mt-2 text-sm text-red-600"
         />
       </div>
       <div>
@@ -125,9 +75,13 @@ const ContactForm: React.FC = () => {
           autoComplete="tel"
           className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
           placeholder="Phone"
-          onChange={handleOnChange}
           required
-          value={inputs.phone}
+        />
+        <ValidationError
+          field="phone"
+          prefix="Phone"
+          errors={state.errors}
+          className="mt-2 text-sm text-red-600"
         />
       </div>
       <div>
@@ -140,15 +94,20 @@ const ContactForm: React.FC = () => {
           rows={4}
           className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
           placeholder="Message"
-          onChange={handleOnChange}
           required
-          value={inputs.message}
+        />
+        <ValidationError
+          field="message"
+          prefix="Message"
+          errors={state.errors}
+          className="mt-2 text-sm text-red-600"
         />
       </div>
       <div>
         <button
           type="submit"
           className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+          disabled={state.submitting}
         >
           Submit
         </button>
