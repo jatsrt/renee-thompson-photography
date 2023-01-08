@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { NotificationContext } from "./Notification";
 import { useForm, ValidationError } from "@formspree/react";
-import { stat } from "fs";
 
 const ContactForm: React.FC = () => {
   const { setMsg, setShow } = React.useContext(NotificationContext);

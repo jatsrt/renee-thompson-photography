@@ -22,7 +22,7 @@ export default function Document() {
           `}
         </Script>
       </Head>
-      <body className="bg-white">
+      <body>
         <Main />
         <NextScript />
       </body>

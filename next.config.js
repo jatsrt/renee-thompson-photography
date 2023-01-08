@@ -2,7 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    // unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "s3.us-east-1.amazonaws.com",
+        pathname: "/gallery.reneethompson.photos/**",
+      },
+    ],
   },
   redirects: async () => {
     return [

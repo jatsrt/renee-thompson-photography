@@ -17,12 +17,19 @@ import bannerPic from "../public/photos/314336153_810713513237695_56872373898179
 import { FacebookIcon, InstagramIcon } from "./Icons";
 
 interface Props extends PropsWithChildren {
-  image: any;
-  title: React.ReactElement;
-  summary: React.ReactElement;
+  image?: any;
+  title?: React.ReactElement;
+  summary?: React.ReactElement;
+  noheader?: boolean;
 }
 
-const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
+const Layout: React.FC<Props> = ({
+  children,
+  image,
+  title,
+  summary,
+  noheader,
+}) => {
   return (
     <Notification>
       <header>
@@ -178,22 +185,26 @@ const Layout: React.FC<Props> = ({ children, image, title, summary }) => {
                 </Transition>
               </Popover>
 
-              <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                <div className="sm:text-center lg:text-left">
-                  {title}
-                  {summary}
-                </div>
-              </main>
+              {!noheader && (
+                <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                  <div className="sm:text-center lg:text-left">
+                    {title}
+                    {summary}
+                  </div>
+                </main>
+              )}
             </div>
           </div>
-          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <Image
-              className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full object-right-top"
-              src={image}
-              alt="Banner Image"
-              placeholder="blur"
-            />
-          </div>
+          {!noheader && (
+            <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+              <Image
+                className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full object-right-top"
+                src={image}
+                alt="Banner Image"
+                placeholder="blur"
+              />
+            </div>
+          )}
         </div>
       </header>
       <main>{children}</main>
