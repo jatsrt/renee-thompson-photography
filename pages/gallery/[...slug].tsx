@@ -32,13 +32,13 @@ const Gallery: NextPageWithLayout = () => {
           <ol role="list" className="flex items-center space-x-4">
             <li>
               <div>
-                <a
+                <Link
                   href="/gallery"
                   className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
                   // className="text-gray-400 hover:text-gray-500"
                 >
                   Galleries
-                </a>
+                </Link>
               </div>
             </li>
             {sslug.map((slug, i) => (
@@ -53,12 +53,12 @@ const Gallery: NextPageWithLayout = () => {
                   >
                     <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                   </svg>
-                  <a
+                  <Link
                     href={`/gallery/${sslug.slice(0, i + 1).join("/")}`}
                     className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
                   >
                     {slug}
-                  </a>
+                  </Link>
                 </div>
               </li>
             ))}
