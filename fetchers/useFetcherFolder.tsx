@@ -13,7 +13,6 @@ export interface Item {
   preview: string;
   source: string;
   modified: Date;
-  size: string;
   orientation?: string;
 }
 

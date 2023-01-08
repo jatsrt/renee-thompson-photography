@@ -109,7 +109,7 @@ const Gallery: NextPageWithLayout = () => {
                 {item.name.split("/").slice(-1)}
               </p>
               <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                {item.size}
+                Download
               </p>
             </li>
           ))}

@@ -8,7 +8,6 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { NextApiHandler } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
 import { Folder, Item } from "../../../fetchers/useFetcherFolder";
-import prettyBytes from "pretty-bytes";
 
 const ListFunction: NextApiHandler = async (req, res) => {
   const session = await getSession(req, res);
@@ -66,7 +65,6 @@ const ListFunction: NextApiHandler = async (req, res) => {
           { expiresIn: 3600 }
         ),
         modified: c.LastModified!,
-        size: prettyBytes(c.Size!),
         orientation: head.Metadata?.imageorientation,
       };
       return item;
