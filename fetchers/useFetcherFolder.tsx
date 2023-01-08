@@ -10,9 +10,11 @@ export interface Folder {
 
 export interface Item {
   name: string;
-  link: string;
+  preview: string;
+  source: string;
   modified: Date;
   size: string;
+  orientation?: string;
 }
 
 const fetcher: Fetcher<Folder, string> = async (path) => {

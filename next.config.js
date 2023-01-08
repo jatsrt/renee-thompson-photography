@@ -5,8 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "s3.us-east-1.amazonaws.com",
-        pathname: "/gallery.reneethompson.photos/**",
+        hostname:
+          "rtpstack-gallerybucket9c5c9edc-1epz9x05hbc7p.s3.us-east-1.amazonaws.com",
+        pathname: "/**",
       },
     ],
   },

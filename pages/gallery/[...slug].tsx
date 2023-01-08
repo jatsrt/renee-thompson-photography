@@ -1,4 +1,3 @@
-import { CameraIcon, HomeIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,8 +5,11 @@ import { useRouter } from "next/router";
 import React from "react";
 import Layout from "../../components/Layout";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
-import bannerPic from "../../public/photos/home/Review1.jpg";
 import { NextPageWithLayout } from "../_app";
+
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const Gallery: NextPageWithLayout = () => {
   const router = useRouter();
@@ -69,23 +71,39 @@ const Gallery: NextPageWithLayout = () => {
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
         <ul
           role="list"
-          className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+          className="grid grid-cols-2 gap-x-2 gap-y-2 sm:grid-cols-4 sm:gap-x-2 lg:grid-cols-8 xl:gap-x-2 grid-flow-dense"
         >
           {data?.items.map((item) => (
-            <li key={item.name} className="relative">
-              <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+            <li
+              key={item.name}
+              className={classNames(
+                item.orientation == "landscape" ? "col-span-2" : "",
+                "relative"
+              )}
+            >
+              <div
+                className={classNames(
+                  item.orientation == "landscape"
+                    ? "aspect-w-10 aspect-h-7"
+                    : "aspect-w-7 aspect-h-10",
+                  "group block w-full overflow-hidden bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100"
+                )}
+              >
                 <Image
-                  src={item.link}
+                  src={item.preview}
                   alt={item.name}
-                  fill
+                  width="1000"
+                  height="700"
                   className="pointer-events-none object-cover group-hover:opacity-75"
                 />
-                <button
+                <Link
                   type="button"
+                  href={item.source}
                   className="absolute inset-0 focus:outline-none"
+                  download
                 >
                   <span className="sr-only">View details for {item.name}</span>
-                </button>
+                </Link>
               </div>
               <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">
                 {item.name.split("/").slice(-1)}
