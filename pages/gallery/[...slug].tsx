@@ -104,6 +104,7 @@ const Gallery: NextPageWithLayout = () => {
                   width="1000"
                   height="700"
                   className="pointer-events-none object-cover group-hover:opacity-75"
+                  unoptimized
                 />
                 <Link
                   type="button"
