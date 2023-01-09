@@ -1,3 +1,4 @@
+import loadConfig from "next/dist/server/config";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +16,7 @@ const Gallery: NextPageWithLayout = () => {
   const router = useRouter();
   const { slug } = router.query;
   const sslug: string[] = (slug as string[]) ?? [];
-  const { data } = useFetcherFolder((sslug ?? []).join("/") + "/");
+  const { data, isLoading } = useFetcherFolder((sslug ?? []).join("/") + "/");
 
   return (
     <>
@@ -69,11 +70,19 @@ const Gallery: NextPageWithLayout = () => {
       </div>
 
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
+        {isLoading ? "Loading" : "Loaded"}
+
+        {data?.subFolders.map((sf, i) => (
+          <div key={i}>
+            <Link href={`/gallery/${sf}`}>{sf.split("/").slice(-2, -1)}</Link>
+          </div>
+        ))}
+
         <ul
           role="list"
           className="grid grid-cols-2 gap-x-2 gap-y-2 sm:grid-cols-4 sm:gap-x-2 lg:grid-cols-8 xl:gap-x-2 grid-flow-dense"
         >
-          {data?.items.map((item) => (
+          {data?.items.map((item, index) => (
             <li
               key={item.name}
               className={classNames(
@@ -109,7 +118,7 @@ const Gallery: NextPageWithLayout = () => {
                 {item.name.split("/").slice(-1)}
               </p>
               <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                Download
+                Download {index}
               </p>
             </li>
           ))}
