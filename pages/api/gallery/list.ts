@@ -48,22 +48,11 @@ const ListFunction: NextApiHandler = async (req, res) => {
 
       const item: Item = {
         name: c.Key!.replace(".preview", ""),
-        preview: await getSignedUrl(
-          s3,
-          new GetObjectCommand({
-            Bucket: process.env.GALLERY_BUCKET_NAME!,
-            Key: c.Key,
-          }),
-          { expiresIn: 3600 }
-        ),
-        source: await getSignedUrl(
-          s3,
-          new GetObjectCommand({
-            Bucket: process.env.GALLERY_BUCKET_NAME!,
-            Key: c.Key?.replace(".preview", ""),
-          }),
-          { expiresIn: 3600 }
-        ),
+        preview: `https://media.reneethompson.photos/${c.Key}`,
+        source: `https://media.reneethompson.photos/${c.Key?.replace(
+          ".preview",
+          ""
+        )}`,
         modified: c.LastModified!,
         orientation: head.Metadata?.imageorientation,
       };

@@ -1,6 +1,6 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { GalleryConstruct } from "./gallery";
+import { GalleryConstruct } from "./gallery-construct";
 
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
