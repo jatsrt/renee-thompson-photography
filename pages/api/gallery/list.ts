@@ -1,10 +1,8 @@
 import {
-  GetObjectCommand,
   S3,
   ListObjectsV2Command,
   HeadObjectCommand,
 } from "@aws-sdk/client-s3";
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { NextApiHandler } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
 import { Folder, Item } from "../../../fetchers/useFetcherFolder";
@@ -48,11 +46,8 @@ const ListFunction: NextApiHandler = async (req, res) => {
 
       const item: Item = {
         name: c.Key!.replace(".preview", ""),
-        preview: `https://media.reneethompson.photos/${c.Key}`,
-        source: `https://media.reneethompson.photos/${c.Key?.replace(
-          ".preview",
-          ""
-        )}`,
+        preview: `/media/${c.Key}`,
+        source: `/media/${c.Key?.replace(".preview", "")}`,
         modified: c.LastModified!,
         orientation: head.Metadata?.imageorientation,
       };

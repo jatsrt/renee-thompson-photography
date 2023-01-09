@@ -10,6 +10,14 @@ const nextConfig = {
       },
     ],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: "/media/:path*",
+        destination: "https://media.reneethompson.photos/:path*",
+      },
+    ];
+  },
   redirects: async () => {
     return [
       {

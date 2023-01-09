@@ -1,9 +1,8 @@
-import loadConfig from "next/dist/server/config";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { HTMLAttributeAnchorTarget } from "react";
 import Layout from "../../components/Layout";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
@@ -111,6 +110,7 @@ const Gallery: NextPageWithLayout = () => {
                   href={item.source}
                   className="absolute inset-0 focus:outline-none"
                   download
+                  target="_blank"
                 >
                   <span className="sr-only">View details for {item.name}</span>
                 </Link>
