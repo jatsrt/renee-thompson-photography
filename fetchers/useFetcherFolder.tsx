@@ -14,16 +14,18 @@ export interface Item {
   source: string;
   modified: Date;
   orientation?: string;
+  favorite: boolean;
 }
 
 const fetcher: Fetcher<Folder, string> = async (path) => {
+  console.log("Path", path);
   const res = await axios.get<Folder>(path);
   return res.data;
 };
 
 export function useFetcherFolder(prefix?: string) {
   const { data, error, isLoading } = useSWR(
-    prefix ? `/api/gallery/list?prefix=${prefix}` : "/api/gallery/list",
+    prefix ? `/api/galleries/${prefix}` : "/api/galleries",
     fetcher
   );
   return { data, error, isLoading };
