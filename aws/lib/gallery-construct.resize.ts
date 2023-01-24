@@ -25,7 +25,7 @@ export const handler = async (event: S3Event): Promise<void> => {
     const imageMeta = await image.metadata();
     const isWide = (imageMeta.width ?? 0) > (imageMeta.height ?? 0);
 
-    const imageWidth = isWide ? 800 : 400;
+    const imageWidth = isWide ? 1600 : 800;
     const imageOrientation = isWide ? "landscape" : "portrait";
     const newImage = await image.resize(imageWidth).toBuffer();
     await s3.send(
