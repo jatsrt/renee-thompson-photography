@@ -40,9 +40,9 @@ const GalleriesShow: NextApiHandler = async (req, res) => {
       .map((p) => p.Prefix!)
       .filter((p) => isAdmin || !p.startsWith("Private/"));
 
-    const files = (Contents ?? [])
-      .filter((c) => c.Key != prefix && c.Key?.endsWith(".preview"))
-      .filter((c) => isAdmin || !c.Key?.startsWith("Private/"));
+    const files = (Contents ?? []).filter(
+      (c) => c.Key != prefix && c.Key?.endsWith(".preview")
+    );
     const items = await Promise.all(
       files.map(async (c) => {
         const head = await s3.send(
