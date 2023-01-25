@@ -97,6 +97,12 @@ const Layout: React.FC<Props> = ({
                       >
                         About
                       </Link>
+                      <Link
+                        href="/galleries/Public"
+                        className="font-medium text-gray-500 hover:text-gray-900"
+                      >
+                        Galleries
+                      </Link>
                     </div>
                   </nav>
                 </div>
@@ -150,6 +156,12 @@ const Layout: React.FC<Props> = ({
                           className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                         >
                           About
+                        </Link>
+                        <Link
+                          href="/galleries/Public"
+                          className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                        >
+                          Galleries
                         </Link>
                       </div>
                     </div>

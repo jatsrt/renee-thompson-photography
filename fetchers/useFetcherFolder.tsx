@@ -18,7 +18,6 @@ export interface Item {
 }
 
 const fetcher: Fetcher<Folder, string> = async (path) => {
-  console.log("Path", path);
   const res = await axios.get<Folder>(path);
   return res.data;
 };

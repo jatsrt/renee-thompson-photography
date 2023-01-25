@@ -34,12 +34,15 @@ const GalleriesShow: NextApiHandler = async (req, res) => {
       })
     );
 
-    const { CommonPrefixes, Contents, NextContinuationToken, Prefix } = result;
+    const { CommonPrefixes, Contents, Prefix } = result;
 
-    const subFolders = (CommonPrefixes ?? []).map((p) => p.Prefix!);
-    const files = (Contents ?? []).filter(
-      (c) => c.Key != prefix && c.Key?.endsWith(".preview")
-    );
+    const subFolders = (CommonPrefixes ?? [])
+      .map((p) => p.Prefix!)
+      .filter((p) => isAdmin || !p.startsWith("Private/"));
+
+    const files = (Contents ?? [])
+      .filter((c) => c.Key != prefix && c.Key?.endsWith(".preview"))
+      .filter((c) => isAdmin || !c.Key?.startsWith("Private/"));
     const items = await Promise.all(
       files.map(async (c) => {
         const head = await s3.send(

@@ -1,14 +1,21 @@
+/* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from "@headlessui/react";
-import { ArrowDownOnSquareIcon, CheckIcon } from "@heroicons/react/24/outline";
-import { Carousel } from "flowbite-react";
+import { ArrowDownOnSquareIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { HTMLAttributeAnchorTarget } from "react";
+import React from "react";
 import Layout from "../../components/Layout";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
+
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Navigation, A11y, Virtual, EffectFade } from "swiper";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -16,6 +23,8 @@ function classNames(...classes: string[]) {
 
 const Gallery: NextPageWithLayout = () => {
   const router = useRouter();
+  const [open, setOpen] = React.useState(false);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const gallery = router.query.gallery
     ? (router.query.gallery as string[])
@@ -75,14 +84,6 @@ const Gallery: NextPageWithLayout = () => {
         </nav>
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12 h-2/3">
-        <Carousel>
-          {data?.items.map((item, index) => (
-            <img src={item.preview} key={index} />
-          ))}
-        </Carousel>
-      </div>
-
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
         {data?.subFolders.map((sf, i) => (
           <div key={i}>
@@ -110,14 +111,23 @@ const Gallery: NextPageWithLayout = () => {
                   "group block w-full overflow-hidden rounded-lg bg-gray-100"
                 )}
               >
-                <Image
+                <img
                   src={item.preview}
                   alt={item.name}
                   width="1000"
-                  height="700"
+                  height="1000"
                   className="pointer-events-none object-cover group-hover:opacity-75"
-                  unoptimized
                 />
+                <button
+                  type="button"
+                  className="absolute inset-0 focus:outline-none"
+                  onClick={() => {
+                    setCurrentSlide(index);
+                    setOpen(true);
+                  }}
+                >
+                  <span className="sr-only">View details for</span>
+                </button>
               </div>
               <Link href={item.source} download target="_blank">
                 <ArrowDownOnSquareIcon className="w-8 h-8 pointer-events-none block text-sm font-medium text-gray-500" />
@@ -126,6 +136,70 @@ const Gallery: NextPageWithLayout = () => {
           ))}
         </ul>
       </div>
+
+      <Transition.Root show={open} as={React.Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={setOpen}>
+          <Transition.Child
+            as={React.Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={React.Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden bg-white transition-all w-full max-w-screen sm:p-4 h-screen">
+                  <Swiper
+                    modules={[Virtual, Navigation, A11y]}
+                    navigation
+                    slidesPerView={1}
+                    className="h-full w-full"
+                    initialSlide={currentSlide}
+                    lazy
+                    loop
+                  >
+                    {data?.items.map((item, index) => (
+                      <SwiperSlide key={item.name} virtualIndex={index}>
+                        <div className="flex h-full items-center justify-center bg-black dark:bg-gray-700 dark:text-white">
+                          <img
+                            src={item.preview}
+                            alt={item.name}
+                            className="object-fit"
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+
+                  <button
+                    type="button"
+                    className="absolute top-6 right-6 inline-flex items-center text-white z-20"
+                  >
+                    <XMarkIcon
+                      className="w-5 sm:w-10 h-5 sm:h-10 "
+                      onClick={() => setOpen(false)}
+                    />
+                  </button>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
     </>
   );
 };
