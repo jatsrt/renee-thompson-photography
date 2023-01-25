@@ -1,4 +1,3 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
 import React from "react";
 import Layout from "../components/Layout";

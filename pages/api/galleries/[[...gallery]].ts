@@ -6,7 +6,6 @@ import {
 import { NextApiHandler } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
 import { Folder, Item } from "../../../fetchers/useFetcherFolder";
-import { request } from "http";
 
 const GalleriesShow: NextApiHandler = async (req, res) => {
   const session = await getSession(req, res);

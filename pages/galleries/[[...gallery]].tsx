@@ -22,6 +22,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import LayoutNoHead from "../../components/LayoutNoHead";
+import Image from "next/image";
+import { Tooltip } from "flowbite-react";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -159,8 +161,6 @@ const Gallery: NextPageWithLayout = () => {
                 <img
                   src={item.preview}
                   alt={item.name}
-                  width="1000"
-                  height="1000"
                   className="pointer-events-none object-fit group-hover:opacity-75"
                 />
 
@@ -187,14 +187,21 @@ const Gallery: NextPageWithLayout = () => {
                     type="button"
                     className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
-                    <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
+                    <Tooltip content="Downloaded" style="light">
+                      <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
+                    </Tooltip>
                   </button>
                 ) : (
                   <button
                     type="button"
                     className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
                   >
-                    <ArrowDownTrayIcon className="h-5 w-5" aria-hidden="true" />
+                    <Tooltip content="Download" style="light">
+                      <ArrowDownTrayIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </Tooltip>
                   </button>
                 )}
               </Link>
