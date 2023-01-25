@@ -1,6 +1,6 @@
 import { Transition } from "@headlessui/react";
 import { CheckCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import React, { useContext } from "react";
+import React from "react";
 
 export const NotificationContext = React.createContext({
   setShow: (val: boolean) => {},

@@ -1,6 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from "@headlessui/react";
-import { ArrowDownOnSquareIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowDownOnSquareIcon,
+  FolderIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -16,6 +20,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import LayoutNoHead from "../../components/LayoutNoHead";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -46,14 +51,14 @@ const Gallery: NextPageWithLayout = () => {
         <meta name="robots" content="noindex,follow" />
       </Head>
 
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:pt-10 sm:pb-8 lg:max-w-7xl lg:px-8 lg:pt-8">
+      <div className="mx-auto max-w-4xl px-4 py-2 sm:px-4 sm:pt-2 sm:pb-4 lg:max-w-7xl lg:px-8 lg:pt-2">
         <nav className="flex" aria-label="Breadcrumb">
           <ol role="list" className="flex items-center space-x-4">
             <li>
               <div>
                 <Link
                   href="/galleries"
-                  className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700"
+                  className="text-sm font-medium text-gray-500 hover:text-gray-700"
                 >
                   Galleries
                 </Link>
@@ -84,13 +89,25 @@ const Gallery: NextPageWithLayout = () => {
         </nav>
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
-        {data?.subFolders.map((sf, i) => (
-          <div key={i}>
-            <Link href={`/galleries/${sf}`}>{sf.split("/").slice(-2, -1)}</Link>
-          </div>
-        ))}
-
+      {data?.subFolders && data?.subFolders.length > 0 && (
+        <div className="mx-auto max-w-4xl px-4 py-2 sm:px-6 sm:pt-2 sm:pb-2 lg:max-w-7xl lg:px-8 lg:pt-2">
+          <ul role="list" className="divide-y divide-gray-200">
+            {data?.subFolders.map((sf, i) => (
+              <li key={sf} className="flex py-4">
+                <FolderIcon className="h-5 w-5 rounded-full text-gray-600" />
+                <Link href={`/galleries/${sf}`}>
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-600">
+                      {sf.slice(0, -1).replaceAll("/", "  /  ")}
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div className="mx-auto max-w-4xl px-4 py-2 sm:px-6 sm:pt-2 sm:pb-2 lg:max-w-7xl lg:px-8 lg:pt-2">
         <ul
           role="list"
           className="grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-6 xl:gap-x-6 grid-flow-dense"
@@ -100,7 +117,7 @@ const Gallery: NextPageWithLayout = () => {
               key={item.name}
               className={classNames(
                 item.orientation == "landscape" ? "col-span-2" : "",
-                "relative"
+                "relative bg-gray-100 rounded-lg flex"
               )}
             >
               <div
@@ -108,7 +125,7 @@ const Gallery: NextPageWithLayout = () => {
                   item.orientation == "landscape"
                     ? "aspect-w-10 aspect-h-7"
                     : "aspect-w-7 aspect-h-10",
-                  "group block w-full overflow-hidden rounded-lg bg-gray-100"
+                  "group block w-full overflow-hidden rounded-lg"
                 )}
               >
                 <img
@@ -116,8 +133,9 @@ const Gallery: NextPageWithLayout = () => {
                   alt={item.name}
                   width="1000"
                   height="1000"
-                  className="pointer-events-none object-cover group-hover:opacity-75"
+                  className="pointer-events-none object-fit group-hover:opacity-75"
                 />
+
                 <button
                   type="button"
                   className="absolute inset-0 focus:outline-none"
@@ -129,9 +147,13 @@ const Gallery: NextPageWithLayout = () => {
                   <span className="sr-only">View details for</span>
                 </button>
               </div>
-              <Link href={item.source} download target="_blank">
-                <ArrowDownOnSquareIcon className="w-8 h-8 pointer-events-none block text-sm font-medium text-gray-500" />
-              </Link>
+
+              <button
+                type="button"
+                className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+              >
+                <ArrowDownOnSquareIcon className="h-5 w-5" aria-hidden="true" />
+              </button>
             </li>
           ))}
         </ul>
@@ -205,7 +227,7 @@ const Gallery: NextPageWithLayout = () => {
 };
 
 Gallery.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout noheader>{page}</Layout>;
+  return <LayoutNoHead>{page}</LayoutNoHead>;
 };
 
 export default Gallery;
