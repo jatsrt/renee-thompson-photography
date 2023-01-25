@@ -13,7 +13,6 @@ import React from "react";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
 import produce from "immer";
-import { enableMapSet } from "immer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Virtual } from "swiper";
@@ -24,32 +23,48 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import LayoutNoHead from "../../components/LayoutNoHead";
 
-enableMapSet();
-
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Gallery: NextPageWithLayout = () => {
   const router = useRouter();
+
+  const [dls, setDls] = React.useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("dls") ?? "";
+      const initialValue: { [key: string]: number } = JSON.parse(saved);
+      return initialValue || {};
+    }
+
+    return {};
+  });
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("dls", JSON.stringify(dls));
+    }
+  }, [dls]);
+
   const [open, setOpen] = React.useState(false);
   const [currentSlide, setCurrentSlide] = React.useState(0);
-  const [dls, setDls] = React.useState(new Set());
 
   const gallery = router.query.gallery
     ? (router.query.gallery as string[])
     : undefined;
   const prefix = gallery ? gallery.join("/") + "/" : undefined;
 
-  const { data, isLoading } = useFetcherFolder(prefix);
+  const { data } = useFetcherFolder(prefix);
 
-  const handleDl = React.useCallback((id: string) => {
-    setDls(
-      produce((dls) => {
-        dls.add(id);
-      })
-    );
-  }, []);
+  const handleDl = React.useCallback(
+    (id: string) => {
+      const updatedDls = produce(dls, (draft) => {
+        draft[id] = draft[id] ? draft[id] + 1 : 1;
+      });
+      setDls(updatedDls);
+    },
+    [dls]
+  );
 
   return (
     <>
@@ -167,19 +182,19 @@ const Gallery: NextPageWithLayout = () => {
                 target="_blank"
                 onClick={() => handleDl(item.name)}
               >
-                {!dls.has(item.name) ? (
-                  <button
-                    type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
-                  >
-                    <ArrowDownTrayIcon className="h-5 w-5" aria-hidden="true" />
-                  </button>
-                ) : (
+                {item.name in dls ? (
                   <button
                     type="button"
                     className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
                     <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                  >
+                    <ArrowDownTrayIcon className="h-5 w-5" aria-hidden="true" />
                   </button>
                 )}
               </Link>
