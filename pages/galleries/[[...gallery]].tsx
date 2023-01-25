@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from "@headlessui/react";
 import {
-  ArrowDownOnSquareIcon,
+  ArrowDownTrayIcon,
+  CheckCircleIcon,
   FolderIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -9,18 +10,21 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import Layout from "../../components/Layout";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
+import produce from "immer";
+import { enableMapSet } from "immer";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Navigation, A11y, Virtual, EffectFade } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, A11y, Virtual } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import LayoutNoHead from "../../components/LayoutNoHead";
+
+enableMapSet();
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -30,6 +34,7 @@ const Gallery: NextPageWithLayout = () => {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [dls, setDls] = React.useState(new Set());
 
   const gallery = router.query.gallery
     ? (router.query.gallery as string[])
@@ -37,6 +42,14 @@ const Gallery: NextPageWithLayout = () => {
   const prefix = gallery ? gallery.join("/") + "/" : undefined;
 
   const { data, isLoading } = useFetcherFolder(prefix);
+
+  const handleDl = React.useCallback((id: string) => {
+    setDls(
+      produce((dls) => {
+        dls.add(id);
+      })
+    );
+  }, []);
 
   return (
     <>
@@ -148,12 +161,28 @@ const Gallery: NextPageWithLayout = () => {
                 </button>
               </div>
 
-              <button
-                type="button"
-                className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+              <Link
+                href={item.source}
+                download
+                target="_blank"
+                onClick={() => handleDl(item.name)}
               >
-                <ArrowDownOnSquareIcon className="h-5 w-5" aria-hidden="true" />
-              </button>
+                {!dls.has(item.name) ? (
+                  <button
+                    type="button"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                  >
+                    <ArrowDownTrayIcon className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                  >
+                    <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                )}
+              </Link>
             </li>
           ))}
         </ul>
