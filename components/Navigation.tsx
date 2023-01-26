@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import logo from "../public/logo.svg";
+import logo from "../public/logo.jpg";
 
 const Navigation: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const Navigation: React.FC = () => {
                 <span className="sr-only">Renee Thompson Photography</span>
                 <Image
                   alt="Renee Thompson Photography"
-                  className="h-8 w-auto sm:h-10"
+                  className="h-10 w-auto sm:h-14"
                   src={logo}
                 />
               </Link>
