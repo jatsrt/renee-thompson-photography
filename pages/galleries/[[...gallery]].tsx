@@ -34,9 +34,13 @@ const Gallery: NextPageWithLayout = () => {
 
   const [dls, setDls] = React.useState(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("dls") ?? "";
-      const initialValue: { [key: string]: number } = JSON.parse(saved);
-      return initialValue || {};
+      const saved = localStorage.getItem("dls");
+      if (saved) {
+        const initialValue: { [key: string]: number } = JSON.parse(saved);
+        return initialValue;
+      } else {
+        return {};
+      }
     }
 
     return {};

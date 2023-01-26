@@ -19,7 +19,7 @@ const Navigation: React.FC = () => {
                 <span className="sr-only">Renee Thompson Photography</span>
                 <Image
                   alt="Renee Thompson Photography"
-                  className="h-10 w-auto sm:h-14"
+                  className="h-10 w-auto sm:h-14 rounded-md"
                   src={logo}
                 />
               </Link>
