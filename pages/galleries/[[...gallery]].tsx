@@ -117,15 +117,15 @@ const Gallery: NextPageWithLayout = () => {
         </nav>
       </div>
 
-      <div className="flex h-full items-center justify-center">
-        {isLoading && (
+      {!isLoading && (
+        <div className="flex h-full items-center justify-center my-4 sm-my-8 lg-my-12">
           <Spinner
             color="purple"
             aria-label="Extra large spinner example"
             size="xl"
           />
-        )}
-      </div>
+        </div>
+      )}
 
       {data?.subFolders && data?.subFolders.length > 0 && (
         <div className="mx-auto max-w-4xl px-4 py-2 sm:px-6 sm:pt-2 sm:pb-2 lg:max-w-7xl lg:px-8 lg:pt-2">
