@@ -22,8 +22,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import LayoutNoHead from "../../components/LayoutNoHead";
-import Image from "next/image";
-import { Tooltip } from "flowbite-react";
+import { Spinner, Tooltip } from "flowbite-react";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -55,7 +54,7 @@ const Gallery: NextPageWithLayout = () => {
     : undefined;
   const prefix = gallery ? gallery.join("/") + "/" : undefined;
 
-  const { data } = useFetcherFolder(prefix);
+  const { data, isLoading } = useFetcherFolder(prefix);
 
   const handleDl = React.useCallback(
     (id: string) => {
@@ -116,6 +115,16 @@ const Gallery: NextPageWithLayout = () => {
             ))}
           </ol>
         </nav>
+      </div>
+
+      <div className="flex h-full items-center justify-center">
+        {isLoading && (
+          <Spinner
+            color="purple"
+            aria-label="Extra large spinner example"
+            size="xl"
+          />
+        )}
       </div>
 
       {data?.subFolders && data?.subFolders.length > 0 && (
