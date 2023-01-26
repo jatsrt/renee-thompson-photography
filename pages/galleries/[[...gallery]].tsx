@@ -35,12 +35,7 @@ const Gallery: NextPageWithLayout = () => {
   const [dls, setDls] = React.useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("dls");
-      if (saved) {
-        const initialValue: { [key: string]: number } = JSON.parse(saved);
-        return initialValue;
-      } else {
-        return {};
-      }
+      return saved ? (JSON.parse(saved) as { [key: string]: number }) : {};
     }
 
     return {};
@@ -141,77 +136,82 @@ const Gallery: NextPageWithLayout = () => {
           </ul>
         </div>
       )}
-      <div className="mx-auto max-w-4xl px-4 py-2 sm:px-6 sm:pt-2 sm:pb-2 lg:max-w-7xl lg:px-8 lg:pt-2">
-        <ul
-          role="list"
-          className="grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-6 xl:gap-x-6 grid-flow-dense"
-        >
-          {data?.items.map((item, index) => (
-            <li
-              key={item.name}
-              className={classNames(
-                item.orientation == "landscape" ? "col-span-2" : "",
-                "relative bg-gray-100 rounded-lg flex"
-              )}
-            >
-              <div
+      <div className="bg-gradient-to-r from-zinc-500 to-slate-800">
+        <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:pt-4 sm:pb-8 lg:max-w-7xl lg:px-8 lg:pt-8">
+          <ul
+            role="list"
+            className="grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-6 xl:gap-x-6 grid-flow-dense"
+          >
+            {data?.items.map((item, index) => (
+              <li
+                key={item.name}
                 className={classNames(
-                  item.orientation == "landscape"
-                    ? "aspect-w-10 aspect-h-7"
-                    : "aspect-w-7 aspect-h-10",
-                  "group block w-full overflow-hidden rounded-lg"
+                  item.orientation == "landscape" ? "col-span-2" : "",
+                  "relative bg-gray-100 rounded-lg flex"
                 )}
               >
-                <img
-                  src={item.preview}
-                  alt={item.name}
-                  className="pointer-events-none object-fit group-hover:opacity-75"
-                />
-
-                <button
-                  type="button"
-                  className="absolute inset-0 focus:outline-none"
-                  onClick={() => {
-                    setCurrentSlide(index);
-                    setOpen(true);
-                  }}
+                <div
+                  className={classNames(
+                    item.orientation == "landscape"
+                      ? "aspect-w-10 aspect-h-7"
+                      : "aspect-w-7 aspect-h-10",
+                    "group block w-full overflow-hidden rounded-lg"
+                  )}
                 >
-                  <span className="sr-only">View details for</span>
-                </button>
-              </div>
+                  <img
+                    src={item.preview}
+                    alt={item.name}
+                    className="pointer-events-none object-fit group-hover:opacity-75"
+                  />
 
-              <Link
-                href={item.source}
-                download
-                target="_blank"
-                onClick={() => handleDl(item.name)}
-              >
-                {item.name in dls ? (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="absolute inset-0 focus:outline-none"
+                    onClick={() => {
+                      setCurrentSlide(index);
+                      setOpen(true);
+                    }}
                   >
-                    <Tooltip content="Downloaded" style="light">
-                      <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
-                    </Tooltip>
+                    <span className="sr-only">View details for</span>
                   </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
-                  >
-                    <Tooltip content="Download" style="light">
-                      <ArrowDownTrayIcon
-                        className="h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    </Tooltip>
-                  </button>
-                )}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                </div>
+
+                <Link
+                  href={item.source}
+                  download
+                  target="_blank"
+                  onClick={() => handleDl(item.name)}
+                >
+                  {item.name in dls ? (
+                    <button
+                      type="button"
+                      className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    >
+                      <Tooltip content="Downloaded" style="light">
+                        <CheckCircleIcon
+                          className="h-5 w-5"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                    >
+                      <Tooltip content="Download" style="light">
+                        <ArrowDownTrayIcon
+                          className="h-5 w-5"
+                          aria-hidden="true"
+                        />
+                      </Tooltip>
+                    </button>
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <Transition.Root show={open} as={React.Fragment}>
@@ -239,7 +239,7 @@ const Gallery: NextPageWithLayout = () => {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-white transition-all w-full max-w-screen sm:p-4 h-screen">
+                <Dialog.Panel className="relative transform overflow-hidden bg-black transition-all w-full max-w-screen sm:p-4 h-screen">
                   <Swiper
                     modules={[Virtual, Navigation, A11y]}
                     navigation
@@ -255,7 +255,7 @@ const Gallery: NextPageWithLayout = () => {
                           <img
                             src={item.preview}
                             alt={item.name}
-                            className="object-fit"
+                            className="max-h-full max-w-full"
                           />
                         </div>
                       </SwiperSlide>
