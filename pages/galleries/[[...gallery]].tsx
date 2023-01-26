@@ -3,6 +3,8 @@ import { Dialog, Transition } from "@headlessui/react";
 import {
   ArrowDownTrayIcon,
   CheckCircleIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   FolderIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -115,6 +117,15 @@ const Gallery: NextPageWithLayout = () => {
             ))}
           </ol>
         </nav>
+        {data?.subFolders && data?.subFolders.length == 0 && (
+          <div className="mt-2 md:flex md:items-center md:justify-between">
+            <div className="min-w-0 flex-1">
+              <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                {gallery?.slice(-1)}
+              </h2>
+            </div>
+          </div>
+        )}
       </div>
 
       {isLoading && (
@@ -145,82 +156,78 @@ const Gallery: NextPageWithLayout = () => {
           </ul>
         </div>
       )}
-      <div className="bg-gradient-to-r from-zinc-500 to-slate-800">
-        <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:pt-4 sm:pb-8 lg:max-w-7xl lg:px-8 lg:pt-8">
-          <ul
-            role="list"
-            className="grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-6 xl:gap-x-6 grid-flow-dense"
-          >
-            {data?.items.map((item, index) => (
-              <li
-                key={item.name}
+
+      <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:pt-4 sm:pb-8 lg:max-w-7xl lg:px-8 lg:pt-8">
+        <ul
+          role="list"
+          className="grid grid-cols-4 gap-1 sm:grid-cols-4 lg:grid-cols-6 grid-flow-dense"
+        >
+          {data?.items.map((item, index) => (
+            <li
+              key={item.name}
+              className={classNames(
+                item.orientation == "landscape" ? "col-span-2" : "",
+                "relative bg-gray-100 flex"
+              )}
+            >
+              <div
                 className={classNames(
-                  item.orientation == "landscape" ? "col-span-2" : "",
-                  "relative bg-gray-100 rounded-lg flex"
+                  item.orientation == "landscape"
+                    ? "aspect-w-10 aspect-h-7"
+                    : "aspect-w-7 aspect-h-10",
+                  "group block w-full overflow-hidden"
                 )}
               >
-                <div
-                  className={classNames(
-                    item.orientation == "landscape"
-                      ? "aspect-w-10 aspect-h-7"
-                      : "aspect-w-7 aspect-h-10",
-                    "group block w-full overflow-hidden rounded-lg"
-                  )}
-                >
-                  <img
-                    src={item.preview}
-                    alt={item.name}
-                    className="pointer-events-none object-fit group-hover:opacity-75"
-                  />
+                <img
+                  src={item.preview}
+                  alt={item.name}
+                  className="pointer-events-none object-fit group-hover:opacity-75"
+                />
 
+                <button
+                  type="button"
+                  className="absolute inset-0 focus:outline-none"
+                  onClick={() => {
+                    setCurrentSlide(index);
+                    setOpen(true);
+                  }}
+                >
+                  <span className="sr-only">View details for</span>
+                </button>
+              </div>
+
+              <Link
+                href={item.source}
+                download
+                target="_blank"
+                onClick={() => handleDl(item.name)}
+              >
+                {item.name in dls ? (
                   <button
                     type="button"
-                    className="absolute inset-0 focus:outline-none"
-                    onClick={() => {
-                      setCurrentSlide(index);
-                      setOpen(true);
-                    }}
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
-                    <span className="sr-only">View details for</span>
+                    <Tooltip content="Downloaded" style="light">
+                      <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
+                    </Tooltip>
                   </button>
-                </div>
-
-                <Link
-                  href={item.source}
-                  download
-                  target="_blank"
-                  onClick={() => handleDl(item.name)}
-                >
-                  {item.name in dls ? (
-                    <button
-                      type="button"
-                      className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                    >
-                      <Tooltip content="Downloaded" style="light">
-                        <CheckCircleIcon
-                          className="h-5 w-5"
-                          aria-hidden="true"
-                        />
-                      </Tooltip>
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
-                    >
-                      <Tooltip content="Download" style="light">
-                        <ArrowDownTrayIcon
-                          className="h-5 w-5"
-                          aria-hidden="true"
-                        />
-                      </Tooltip>
-                    </button>
-                  )}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                ) : (
+                  <button
+                    type="button"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                  >
+                    <Tooltip content="Download" style="light">
+                      <ArrowDownTrayIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </Tooltip>
+                  </button>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <Transition.Root show={open} as={React.Fragment}>
