@@ -117,7 +117,7 @@ const Gallery: NextPageWithLayout = () => {
         </nav>
       </div>
 
-      {!isLoading && (
+      {isLoading && (
         <div className="flex h-full items-center justify-center my-4 sm-my-8 lg-my-12">
           <Spinner
             color="purple"
