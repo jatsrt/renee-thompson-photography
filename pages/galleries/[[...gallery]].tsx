@@ -83,7 +83,7 @@ const Gallery: NextPageWithLayout = () => {
 
       <div className="mx-auto max-w-4xl px-4 py-2 sm:px-4 sm:pt-2 sm:pb-4 lg:max-w-7xl lg:px-8 lg:pt-2">
         <nav className="flex" aria-label="Breadcrumb">
-          <ol role="list" className="flex items-center space-x-4">
+          {/* <ol role="list" className="flex items-center space-x-4">
             <li>
               <div>
                 <Link
@@ -94,7 +94,7 @@ const Gallery: NextPageWithLayout = () => {
                 </Link>
               </div>
             </li>
-            {gallery?.map((slug, i) => (
+            {gallery?.slice(-1).map((slug, i) => (
               <li key={i}>
                 <div className="flex items-center">
                   <svg
@@ -115,7 +115,7 @@ const Gallery: NextPageWithLayout = () => {
                 </div>
               </li>
             ))}
-          </ol>
+          </ol> */}
         </nav>
         {data?.subFolders && data?.subFolders.length == 0 && (
           <div className="mt-2 md:flex md:items-center md:justify-between">
@@ -245,7 +245,7 @@ const Gallery: NextPageWithLayout = () => {
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div className="flex min-h-screen items-center justify-center p-0 text-center">
               <Transition.Child
                 as={React.Fragment}
                 enter="ease-out duration-300"
@@ -255,23 +255,22 @@ const Gallery: NextPageWithLayout = () => {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-black transition-all w-full max-w-screen sm:p-4 h-screen">
+                <Dialog.Panel className="relative transform overflow-hidden bg-black transition-all w-screen max-w-screen h-screen">
                   <Swiper
                     modules={[Virtual, Navigation, A11y]}
                     navigation
                     slidesPerView={1}
-                    className="h-full w-full"
+                    className="h-screen w-screen"
                     initialSlide={currentSlide}
-                    lazy
                     loop
                   >
                     {data?.items.map((item, index) => (
                       <SwiperSlide key={item.name} virtualIndex={index}>
-                        <div className="flex h-full items-center justify-center bg-black dark:bg-gray-700 dark:text-white">
+                        <div className="flex h-screen items-center justify-center bg-black dark:bg-gray-700 dark:text-white">
                           <img
                             src={item.preview}
                             alt={item.name}
-                            className="max-h-full max-w-full"
+                            className="max-h-screen max-w-screen"
                           />
                         </div>
                       </SwiperSlide>
