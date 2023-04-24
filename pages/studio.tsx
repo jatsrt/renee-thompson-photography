@@ -30,15 +30,15 @@ Studio.getLayout = function getLayout(page: React.ReactElement) {
         <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
           <span className="block xl:inline">Studio Space</span>{" "}
           <span className="block xl:inline text-lg sm:text-xl md:text-2xl text-gray-700">
-            Coming Soon
+            Westborough, MA
           </span>
         </h1>
       }
       summary={
         <>
           <p className="mt-4 text-sm tracking-tight text-gray-500 sm:text-md md:text-lg md:mr-16 lg:mt-8">
-            Starting in January, 2023, we will be opening our first photography
-            studio here in Westborough! More information coming soon.
+            Holiday minis, head shots and more now available in our private
+            studio located in Westborough, MA.
           </p>
         </>
       }
