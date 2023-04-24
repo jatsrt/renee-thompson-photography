@@ -58,7 +58,11 @@ const GalleriesShow: NextApiHandler = async (req, res) => {
         const item: Item = {
           name: c.Key!.replace(".preview", ""),
           preview: `/media/${c.Key}`,
-          source: `/media/${c.Key?.replace(".preview", "")}`,
+          // source: `/media/${c.Key?.replace(".preview", "")}`,
+          source: `https://media.reneethompson.photos/${c.Key?.replace(
+            ".preview",
+            ""
+          )}`,
           modified: c.LastModified!,
           orientation: head.Metadata?.imageorientation,
           favorite: !!head.Metadata?.favorite,
