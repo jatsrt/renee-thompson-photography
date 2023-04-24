@@ -3,8 +3,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import {
   ArrowDownTrayIcon,
   CheckCircleIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
   FolderIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -14,7 +12,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
-import produce from "immer";
+import { produce } from "immer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Virtual } from "swiper";
