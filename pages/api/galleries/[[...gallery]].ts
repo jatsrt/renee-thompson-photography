@@ -35,9 +35,13 @@ const GalleriesShow: NextApiHandler = async (req, res) => {
 
     const { CommonPrefixes, Contents, Prefix } = result;
 
+    const indexable = (Contents ?? []).find((c) =>
+      c.Key?.endsWith("public.index")
+    );
+
     const subFolders = (CommonPrefixes ?? [])
       .map((p) => p.Prefix!)
-      .filter((p) => isAdmin || !p.startsWith("Private/"));
+      .filter((p) => isAdmin || !!indexable || !p.startsWith("Private/"));
 
     const files = (Contents ?? []).filter(
       (c) => c.Key != prefix && c.Key?.endsWith(".preview")
