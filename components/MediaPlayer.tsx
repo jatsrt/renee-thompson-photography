@@ -13,7 +13,13 @@ const MediaPlayer: React.FC<{ media: Item }> = ({ media }) => {
     }
   }, [media.source]);
 
-  return <video ref={videoRef} controls />;
+  return (
+    <video ref={videoRef} controls>
+      <a href={media.source.replace("m3u8", "mp4")} download>
+        Download video
+      </a>
+    </video>
+  );
 };
 
 export default MediaPlayer;
