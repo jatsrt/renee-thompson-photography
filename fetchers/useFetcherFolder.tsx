@@ -6,15 +6,16 @@ export interface Folder {
   isAdmin: boolean;
   subFolders: string[];
   items: Item[];
+  medias: Item[];
 }
 
 export interface Item {
   name: string;
-  preview: string;
+  preview?: string;
   source: string;
   modified: Date;
   orientation?: string;
-  favorite: boolean;
+  favorite?: boolean;
 }
 
 const fetcher: Fetcher<Folder, string> = async (path) => {

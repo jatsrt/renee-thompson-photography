@@ -24,7 +24,23 @@ export class GalleryConstruct extends Construct {
         externalModules: ["sharp"],
       },
     });
-    const bucket = new s3.Bucket(this, "bucket");
+    const bucket = new s3.Bucket(this, "bucket", {
+      cors: [
+        {
+          allowedMethods: [
+            s3.HttpMethods.GET,
+            s3.HttpMethods.POST,
+            s3.HttpMethods.PUT,
+          ],
+          allowedOrigins: [
+            "*",
+            "http://localhost:3000",
+            "https://reneethompson.photos",
+          ],
+          allowedHeaders: ["*"],
+        },
+      ],
+    });
     bucket.grantReadWrite(fn);
 
     fn.addEventSource(
@@ -42,7 +58,14 @@ export class GalleryConstruct extends Construct {
     });
 
     const distribution = new cloudfront.Distribution(this, "dist", {
-      defaultBehavior: { origin: new origins.S3Origin(bucket) },
+      defaultBehavior: {
+        origin: new origins.S3Origin(bucket),
+        allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+        originRequestPolicy: cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
+        responseHeadersPolicy:
+          cloudfront.ResponseHeadersPolicy
+            .CORS_ALLOW_ALL_ORIGINS_WITH_PREFLIGHT_AND_SECURITY_HEADERS,
+      },
       domainNames: ["media.reneethompson.photos"],
       certificate: myCertificate,
     });

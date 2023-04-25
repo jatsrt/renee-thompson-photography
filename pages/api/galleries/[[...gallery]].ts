@@ -46,6 +46,11 @@ const GalleriesShow: NextApiHandler = async (req, res) => {
     const files = (Contents ?? []).filter(
       (c) => c.Key != prefix && c.Key?.endsWith(".preview")
     );
+
+    const media = (Contents ?? []).filter(
+      (c) => c.Key != prefix && c.Key?.endsWith(".m3u8")
+    );
+
     const items = await Promise.all(
       files.map(async (c) => {
         const head = await s3.send(
@@ -71,11 +76,22 @@ const GalleriesShow: NextApiHandler = async (req, res) => {
       })
     );
 
+    const medias = media.map((c) => {
+      const item: Item = {
+        name: c.Key!.replace(".preview", ""),
+        source: `https://media.reneethompson.photos/${c.Key}`,
+        // source: `/media/${c.Key}`,
+        modified: c.LastModified!,
+      };
+      return item;
+    });
+
     const folder: Folder = {
       prefix: Prefix!,
       isAdmin: !!isAdmin,
       subFolders,
       items,
+      medias,
     };
 
     return res.status(200).json(folder);
