@@ -13,7 +13,6 @@ import React from "react";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
 import { produce } from "immer";
-import ReactPlayer from "react-player";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Virtual } from "swiper";
@@ -24,6 +23,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import LayoutNoHead from "../../components/LayoutNoHead";
 import { Spinner, Tooltip } from "flowbite-react";
+import MediaPlayer from "../../components/MediaPlayer";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -226,25 +226,13 @@ const Gallery: NextPageWithLayout = () => {
               </Link>
             </li>
           ))}
-        </ul>
-      </div>
-
-      <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 sm:pt-4 sm:pb-8 lg:max-w-7xl lg:px-8 lg:pt-8">
-        <ul
-          role="list"
-          className="grid grid-cols-4 gap-1 sm:grid-cols-4 lg:grid-cols-6 grid-flow-dense"
-        >
           {data?.medias.map((media, index) => (
             <li
               key={media.name}
               className="relative bg-gray-100 flex col-span-2"
             >
-              <ReactPlayer
-                url={media.source}
-                controls
-                muted
-                className="group block w-full overflow-hidden aspect-w-10 aspect-h-7"
-              />
+              <MediaPlayer media={media} />
+
               <Link
                 href={media.source.replace("m3u8", "mp4")}
                 download

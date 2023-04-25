@@ -11,7 +11,7 @@ export default function Document() {
           src="https://www.googletagmanager.com/gtag/js?id=G-2FDB7X0B4R"
           strategy="afterInteractive"
         />
-
+        <Script src="https://cdn.jsdelivr.net/npm/hls.js@1" />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
