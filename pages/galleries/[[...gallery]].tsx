@@ -161,6 +161,44 @@ const Gallery: NextPageWithLayout = () => {
           role="list"
           className="grid grid-cols-4 gap-1 sm:grid-cols-4 lg:grid-cols-6 grid-flow-dense"
         >
+          {data?.medias.map((media, index) => (
+            <li
+              key={media.name}
+              className="relative bg-gray-100 flex col-span-2"
+            >
+              <MediaPlayer media={media} />
+
+              <Link
+                href={media.source.replace("m3u8", "mp4")}
+                download
+                target="_blank"
+                onClick={() => handleDl(media.name)}
+              >
+                {media.name in dls ? (
+                  <button
+                    type="button"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                  >
+                    <Tooltip content="Downloaded" style="light">
+                      <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
+                    </Tooltip>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                  >
+                    <Tooltip content="Download" style="light">
+                      <ArrowDownTrayIcon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </Tooltip>
+                  </button>
+                )}
+              </Link>
+            </li>
+          ))}
           {data?.items.map((item, index) => (
             <li
               key={item.name}
@@ -202,44 +240,6 @@ const Gallery: NextPageWithLayout = () => {
                 onClick={() => handleDl(item.name)}
               >
                 {item.name in dls ? (
-                  <button
-                    type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                  >
-                    <Tooltip content="Downloaded" style="light">
-                      <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
-                    </Tooltip>
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
-                  >
-                    <Tooltip content="Download" style="light">
-                      <ArrowDownTrayIcon
-                        className="h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    </Tooltip>
-                  </button>
-                )}
-              </Link>
-            </li>
-          ))}
-          {data?.medias.map((media, index) => (
-            <li
-              key={media.name}
-              className="relative bg-gray-100 flex col-span-2"
-            >
-              <MediaPlayer media={media} />
-
-              <Link
-                href={media.source.replace("m3u8", "mp4")}
-                download
-                target="_blank"
-                onClick={() => handleDl(media.name)}
-              >
-                {media.name in dls ? (
                   <button
                     type="button"
                     className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
