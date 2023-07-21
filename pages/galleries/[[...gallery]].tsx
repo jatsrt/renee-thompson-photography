@@ -13,17 +13,18 @@ import React from "react";
 import { useFetcherFolder } from "../../fetchers/useFetcherFolder";
 import { NextPageWithLayout } from "../_app";
 import { produce } from "immer";
-
+import LayoutNoHead from "../../components/LayoutNoHead";
+import { Spinner, Tooltip } from "flowbite-react";
+import MediaPlayer from "../../components/MediaPlayer";
+// import Swiper from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y, Virtual } from "swiper";
+import { Virtual, Navigation, A11y } from "swiper/modules";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import LayoutNoHead from "../../components/LayoutNoHead";
-import { Spinner, Tooltip } from "flowbite-react";
-import MediaPlayer from "../../components/MediaPlayer";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");

@@ -11,44 +11,19 @@ import * as sources from "aws-cdk-lib/aws-lambda-event-sources";
 import { Construct } from "constructs";
 
 export class GalleryConstruct extends Construct {
+  public resizeFunction: lambda.Function;
+  public bucket: s3.Bucket;
+  public distribution: cloudfront.Distribution;
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id);
 
-    const fn = new nodejs.NodejsFunction(this, "resize", {
-      memorySize: 2048,
-      architecture: lambda.Architecture.ARM_64,
-      runtime: lambda.Runtime.NODEJS_18_X,
-      bundling: {
-        forceDockerBundling: true,
-        nodeModules: ["sharp"],
-        externalModules: ["sharp"],
-      },
-    });
-    const bucket = new s3.Bucket(this, "bucket", {
-      cors: [
-        {
-          allowedMethods: [
-            s3.HttpMethods.GET,
-            s3.HttpMethods.POST,
-            s3.HttpMethods.PUT,
-          ],
-          allowedOrigins: [
-            "*",
-            "http://localhost:3000",
-            "https://reneethompson.photos",
-          ],
-          allowedHeaders: ["*"],
-        },
-      ],
-    });
-    bucket.grantReadWrite(fn);
+    this.bucket = this.createBucket();
+    this.distribution = this.createDistrubution();
+    this.resizeFunction = this.createResizeFunction();
+  }
 
-    fn.addEventSource(
-      new sources.S3EventSource(bucket, {
-        events: [s3.EventType.OBJECT_CREATED],
-      })
-    );
-
+  private createDistrubution() {
     const hostedZone = route53.HostedZone.fromLookup(this, "zone", {
       domainName: "reneethompson.photos",
     });
@@ -59,7 +34,7 @@ export class GalleryConstruct extends Construct {
 
     const distribution = new cloudfront.Distribution(this, "dist", {
       defaultBehavior: {
-        origin: new origins.S3Origin(bucket),
+        origin: new origins.S3Origin(this.bucket),
         allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         originRequestPolicy: cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
         responseHeadersPolicy:
@@ -85,5 +60,56 @@ export class GalleryConstruct extends Construct {
         new targets.CloudFrontTarget(distribution)
       ),
     });
+
+    return distribution;
+  }
+
+  private createBucket() {
+    const bucket = new s3.Bucket(this, "bucket", {
+      cors: [
+        {
+          allowedMethods: [
+            s3.HttpMethods.GET,
+            s3.HttpMethods.POST,
+            s3.HttpMethods.PUT,
+          ],
+          allowedOrigins: [
+            "*",
+            "http://localhost:3000",
+            "https://reneethompson.photos",
+          ],
+          allowedHeaders: ["*"],
+        },
+      ],
+    });
+
+    return bucket;
+  }
+
+  private createResizeFunction() {
+    const fn = new nodejs.NodejsFunction(this, "resize", {
+      memorySize: 2048,
+      architecture: lambda.Architecture.ARM_64,
+      runtime: lambda.Runtime.NODEJS_18_X,
+      bundling: {
+        forceDockerBundling: true,
+        nodeModules: ["sharp"],
+        externalModules: ["sharp"],
+      },
+      environment: {
+        DISTRIBUTION_ID: this.distribution.distributionId,
+      },
+    });
+
+    this.distribution.grantCreateInvalidation(fn);
+    this.bucket.grantReadWrite(fn);
+
+    fn.addEventSource(
+      new sources.S3EventSource(this.bucket, {
+        events: [s3.EventType.OBJECT_CREATED],
+      })
+    );
+
+    return fn;
   }
 }
