@@ -36,8 +36,7 @@ const Contact: NextPageWithLayout = () => {
                     <dt className="sr-only">Postal address</dt>
                     <dd>
                       <p className="font-bold">Renee Thompson Photography</p>
-                      <p className="font-bold">Studio:</p>
-                      <p>18 Lyman St, Suite 221</p>
+                      <p>24 Nash St</p>
                       <p>Westborough, MA 01581</p>
                     </dd>
                   </div>
