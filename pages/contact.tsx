@@ -75,7 +75,7 @@ const Contact: NextPageWithLayout = () => {
                         aria-hidden="true"
                       />
                       <span className="ml-3">
-                        <a href="mailto:renee@reneethomnpson.photos">
+                        <a href="mailto:renee@reneethompson.photos">
                           renee@reneethompson.photos
                         </a>
                       </span>
