@@ -49,7 +49,7 @@ const Layout: React.FC<Props> = ({
           {!noheader && (
             <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
               <Image
-                className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full object-right-top"
+                className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full object-top-right"
                 src={image}
                 alt="Banner Image"
                 placeholder="blur"

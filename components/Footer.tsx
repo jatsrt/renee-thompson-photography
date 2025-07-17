@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon } from "./Icons";
 const Footer: React.FC = () => {
   return (
     <footer
-      className="bg-gradient-to-r from-zinc-500 to-slate-800"
+      className="bg-linear-to-r from-zinc-500 to-slate-800"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
@@ -20,13 +20,13 @@ const Footer: React.FC = () => {
             href="https://www.facebook.com/ReneeThompsonPhotos"
             target="_blank"
           >
-            <FacebookIcon className="h-6 w-6 flex-shrink-0 text-gray-200" />
+            <FacebookIcon className="h-6 w-6 shrink-0 text-gray-200" />
           </Link>
           <Link
             href="https://www.instagram.com/ReneeThompsonPhotos"
             target="_blank"
           >
-            <InstagramIcon className="h-6 w-6 flex-shrink-0 text-gray-200 sm:ml-8" />
+            <InstagramIcon className="h-6 w-6 shrink-0 text-gray-200 sm:ml-8" />
           </Link>
         </p>
       </div>

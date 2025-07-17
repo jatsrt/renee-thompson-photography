@@ -33,7 +33,7 @@ const Notification: React.FC<React.PropsWithChildren> = ({ children }) => {
             <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="p-4">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <CheckCircleIcon
                       className="h-6 w-6 text-green-400"
                       aria-hidden="true"
@@ -45,10 +45,10 @@ const Notification: React.FC<React.PropsWithChildren> = ({ children }) => {
                     </p>
                     <p className="mt-1 text-sm text-gray-500">{msg.body}</p>
                   </div>
-                  <div className="ml-4 flex flex-shrink-0">
+                  <div className="ml-4 flex shrink-0">
                     <button
                       type="button"
-                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => {
                         setShow(false);
                       }}

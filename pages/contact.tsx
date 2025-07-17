@@ -44,7 +44,7 @@ const Contact: NextPageWithLayout = () => {
                     <dt className="sr-only">Get Directions</dt>
                     <dd className="flex">
                       <MapIcon
-                        className="h-6 w-6 flex-shrink-0 text-gray-400"
+                        className="h-6 w-6 shrink-0 text-gray-400"
                         aria-hidden="true"
                       />
                       <span className="ml-3">
@@ -58,7 +58,7 @@ const Contact: NextPageWithLayout = () => {
                     <dt className="sr-only">Phone number</dt>
                     <dd className="flex">
                       <PhoneIcon
-                        className="h-6 w-6 flex-shrink-0 text-gray-400"
+                        className="h-6 w-6 shrink-0 text-gray-400"
                         aria-hidden="true"
                       />
                       <span className="ml-3">
@@ -70,7 +70,7 @@ const Contact: NextPageWithLayout = () => {
                     <dt className="sr-only">Email</dt>
                     <dd className="flex">
                       <EnvelopeIcon
-                        className="h-6 w-6 flex-shrink-0 text-gray-400"
+                        className="h-6 w-6 shrink-0 text-gray-400"
                         aria-hidden="true"
                       />
                       <span className="ml-3">
@@ -83,7 +83,7 @@ const Contact: NextPageWithLayout = () => {
                   <div className="mt-3">
                     <dt className="sr-only">Facebook</dt>
                     <dd className="flex">
-                      <FacebookIcon className="h-6 w-6 flex-shrink-0 text-gray-400" />
+                      <FacebookIcon className="h-6 w-6 shrink-0 text-gray-400" />
                       <span className="ml-3">
                         <a href="https://www.facebook.com/ReneeThompsonPhotos">
                           See us on Facebook
@@ -94,7 +94,7 @@ const Contact: NextPageWithLayout = () => {
                   <div className="mt-3">
                     <dt className="sr-only">Instagram</dt>
                     <dd className="flex">
-                      <InstagramIcon className="h-6 w-6 flex-shrink-0 text-gray-400" />
+                      <InstagramIcon className="h-6 w-6 shrink-0 text-gray-400" />
                       <span className="ml-3">
                         <a href="https://www.instagram.com/ReneeThompsonPhotos">
                           See us on Instagram

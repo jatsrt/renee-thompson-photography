@@ -98,7 +98,7 @@ const Gallery: NextPageWithLayout = () => {
               <li key={i}>
                 <div className="flex items-center">
                   <svg
-                    className="h-5 w-5 flex-shrink-0 text-gray-300"
+                    className="h-5 w-5 shrink-0 text-gray-300"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -178,7 +178,7 @@ const Gallery: NextPageWithLayout = () => {
                 {media.name in dls ? (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Downloaded" style="light">
                       <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
@@ -187,7 +187,7 @@ const Gallery: NextPageWithLayout = () => {
                 ) : (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-xs hover:bg-stone-700 focus:outline-hidden focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Download" style="light">
                       <ArrowDownTrayIcon
@@ -224,7 +224,7 @@ const Gallery: NextPageWithLayout = () => {
 
                 <button
                   type="button"
-                  className="absolute inset-0 focus:outline-none"
+                  className="absolute inset-0 focus:outline-hidden"
                   onClick={() => {
                     setCurrentSlide(index);
                     setOpen(true);
@@ -243,7 +243,7 @@ const Gallery: NextPageWithLayout = () => {
                 {item.name in dls ? (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Downloaded" style="light">
                       <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
@@ -252,7 +252,7 @@ const Gallery: NextPageWithLayout = () => {
                 ) : (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-sm hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-xs hover:bg-stone-700 focus:outline-hidden focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Download" style="light">
                       <ArrowDownTrayIcon

@@ -28,7 +28,7 @@ const Home: NextPageWithLayout = () => {
       </Head>
       <>
         <div
-          className="bg-gradient-to-r from-zinc-500 to-slate-800  "
+          className="bg-linear-to-r from-zinc-500 to-slate-800  "
           id="services"
         >
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:pt-10 sm:pb-12 lg:max-w-7xl lg:px-8 lg:pt-12">
@@ -45,7 +45,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-none"
+                    className="absolute inset-0 focus:outline-hidden"
                     href="/services/seniorsgrads"
                   >
                     <span className="sr-only">
@@ -66,7 +66,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-none"
+                    className="absolute inset-0 focus:outline-hidden"
                     href="/services/events"
                   >
                     <span className="sr-only">View details for events</span>
@@ -85,7 +85,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-none"
+                    className="absolute inset-0 focus:outline-hidden"
                     href="/services/childrenfamilies"
                   >
                     <span className="sr-only">
@@ -106,7 +106,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-none"
+                    className="absolute inset-0 focus:outline-hidden"
                     href="/services/specialrequests"
                   >
                     <span className="sr-only">
@@ -127,7 +127,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-none"
+                    className="absolute inset-0 focus:outline-hidden"
                     href="/services/sports"
                   >
                     <span className="sr-only">View details for sports</span>
@@ -144,8 +144,8 @@ const Home: NextPageWithLayout = () => {
         <section className="bg-slate-800">
           <div className="mx-auto max-w-7xl md:grid md:grid-cols-2 md:px-6 lg:px-8">
             <div className="py-12 px-4 sm:px-6 md:flex md:flex-col md:border-r md:border-slate-900 md:py-16 md:pl-0 md:pr-10 lg:pr-16">
-              <blockquote className="mt-6 md:flex md:flex-grow md:flex-col">
-                <div className="relative text-lg font-medium text-white md:flex-grow">
+              <blockquote className="mt-6 md:flex md:grow md:flex-col">
+                <div className="relative text-lg font-medium text-white md:grow">
                   <svg
                     className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-slate-600"
                     fill="currentColor"
@@ -164,7 +164,7 @@ const Home: NextPageWithLayout = () => {
                 </div>
                 <footer className="mt-8">
                   <div className="flex items-start">
-                    <div className="inline-flex flex-shrink-0 rounded-full border-2 border-white">
+                    <div className="inline-flex shrink-0 rounded-full border-2 border-white">
                       <Image
                         className="inline-block h-14 w-14 rounded-full object-cover object-top"
                         src={review1}
@@ -184,8 +184,8 @@ const Home: NextPageWithLayout = () => {
               </blockquote>
             </div>
             <div className="border-t-2 border-slate-900 py-12 px-4 sm:px-6 md:border-t-0 md:border-l md:py-16 md:pr-0 md:pl-10 lg:pl-16">
-              <blockquote className="mt-6 md:flex md:flex-grow md:flex-col">
-                <div className="relative text-lg font-medium text-white md:flex-grow">
+              <blockquote className="mt-6 md:flex md:grow md:flex-col">
+                <div className="relative text-lg font-medium text-white md:grow">
                   <svg
                     className="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-slate-600"
                     fill="currentColor"
@@ -205,7 +205,7 @@ const Home: NextPageWithLayout = () => {
                 </div>
                 <footer className="mt-8">
                   <div className="flex items-start">
-                    <div className="inline-flex flex-shrink-0 rounded-full border-2 border-white">
+                    <div className="inline-flex shrink-0 rounded-full border-2 border-white">
                       <Image
                         className="inline-block h-14 w-14 rounded-full object-cover object-top"
                         src={review2}

@@ -31,7 +31,7 @@ const ContactForm: React.FC = () => {
           name="full-name"
           type="text"
           autoComplete="name"
-          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-xs focus:border-slate-500 focus:ring-slate-500"
           placeholder="Full name"
           required
         />
@@ -51,7 +51,7 @@ const ContactForm: React.FC = () => {
           name="email"
           type="email"
           autoComplete="email"
-          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-xs focus:border-slate-500 focus:ring-slate-500"
           placeholder="Email"
           required
         />
@@ -71,7 +71,7 @@ const ContactForm: React.FC = () => {
           name="phone"
           id="phone"
           autoComplete="tel"
-          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-xs focus:border-slate-500 focus:ring-slate-500"
           placeholder="Phone"
           required
         />
@@ -90,7 +90,7 @@ const ContactForm: React.FC = () => {
           id="message"
           name="message"
           rows={4}
-          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-slate-500 focus:ring-slate-500"
+          className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-xs focus:border-slate-500 focus:ring-slate-500"
           placeholder="Message"
           required
         />
@@ -104,7 +104,7 @@ const ContactForm: React.FC = () => {
       <div>
         <button
           type="submit"
-          className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-3 px-6 text-base font-medium text-white shadow-xs hover:bg-slate-700 focus:outline-hidden focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
           disabled={state.submitting}
         >
           Submit
