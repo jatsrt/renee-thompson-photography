@@ -5,10 +5,11 @@ import {
 } from "@aws-sdk/client-s3";
 import { NextApiHandler } from "next";
 import { Folder, Item } from "../../../fetchers/useFetcherFolder";
+import { auth0 } from "../../../lib/auth0";
 
 const GalleriesShow: NextApiHandler = async (req, res) => {
-  // TODO: FIXME: const isAdmin = (session?.user.email ?? "").endsWith("@reneethompson.photos");
-  const isAdmin = false;
+  const { user } = (await auth0.getSession(req)) ?? { user: null };
+  const isAdmin = user?.email?.endsWith("@reneethompson.photos") ?? false;
 
   const s3 = new S3({
     region: "us-east-1",
