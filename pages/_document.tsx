@@ -7,6 +7,10 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2FDB7X0B4R"
           strategy="afterInteractive"
@@ -17,14 +21,10 @@ export default function Document() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-        
+
             gtag('config', 'G-2FDB7X0B4R');
           `}
         </Script>
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
       </body>
     </Html>
   );

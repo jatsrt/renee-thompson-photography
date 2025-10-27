@@ -104,7 +104,7 @@ const ContactForm: React.FC = () => {
       <div>
         <button
           type="submit"
-          className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-3 px-6 text-base font-medium text-white shadow-xs hover:bg-slate-700 focus:outline-hidden focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border border-transparent bg-slate-600 py-3 px-6 text-base font-medium text-white shadow-xs hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
           disabled={state.submitting}
         >
           Submit

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Dialog, Transition } from "@headlessui/react";
+import { Dialog, Transition, TransitionChild } from "@headlessui/react";
 import {
   ArrowDownTrayIcon,
   CheckCircleIcon,
@@ -18,7 +18,7 @@ import { Spinner, Tooltip } from "flowbite-react";
 import MediaPlayer from "../../components/MediaPlayer";
 // import Swiper from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual, Navigation, A11y } from "swiper/modules";
+import { Navigation, A11y } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -178,7 +178,7 @@ const Gallery: NextPageWithLayout = () => {
                 {media.name in dls ? (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-xs hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Downloaded" style="light">
                       <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
@@ -187,7 +187,7 @@ const Gallery: NextPageWithLayout = () => {
                 ) : (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-xs hover:bg-stone-700 focus:outline-hidden focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-xs hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Download" style="light">
                       <ArrowDownTrayIcon
@@ -211,8 +211,8 @@ const Gallery: NextPageWithLayout = () => {
               <div
                 className={classNames(
                   item.orientation == "landscape"
-                    ? "aspect-w-10 aspect-h-7"
-                    : "aspect-w-7 aspect-h-10",
+                    ? "aspect-[10/7]"
+                    : "aspect-[7/10]",
                   "group block w-full overflow-hidden"
                 )}
               >
@@ -224,7 +224,7 @@ const Gallery: NextPageWithLayout = () => {
 
                 <button
                   type="button"
-                  className="absolute inset-0 focus:outline-hidden"
+                  className="absolute inset-0 focus:outline-none"
                   onClick={() => {
                     setCurrentSlide(index);
                     setOpen(true);
@@ -243,7 +243,7 @@ const Gallery: NextPageWithLayout = () => {
                 {item.name in dls ? (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-xs hover:bg-green-700 focus:outline-hidden focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1 text-white shadow-xs hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Downloaded" style="light">
                       <CheckCircleIcon className="h-5 w-5" aria-hidden="true" />
@@ -252,7 +252,7 @@ const Gallery: NextPageWithLayout = () => {
                 ) : (
                   <button
                     type="button"
-                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-xs hover:bg-stone-700 focus:outline-hidden focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
+                    className="absolute bottom-2 right-2 inline-flex items-center rounded-full border border-transparent bg-stone-600 p-1 text-white shadow-xs hover:bg-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2"
                   >
                     <Tooltip content="Download" style="light">
                       <ArrowDownTrayIcon
@@ -268,9 +268,9 @@ const Gallery: NextPageWithLayout = () => {
         </ul>
       </div>
 
-      <Transition.Root show={open} as={React.Fragment}>
+      <Transition show={open} as={React.Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
-          <Transition.Child
+          <TransitionChild
             as={React.Fragment}
             enter="ease-out duration-300"
             enterFrom="opacity-0"
@@ -280,11 +280,11 @@ const Gallery: NextPageWithLayout = () => {
             leaveTo="opacity-0"
           >
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
+          </TransitionChild>
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex min-h-screen items-center justify-center p-0 text-center">
-              <Transition.Child
+              <TransitionChild
                 as={React.Fragment}
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -293,22 +293,29 @@ const Gallery: NextPageWithLayout = () => {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-black transition-all w-screen max-w-screen h-screen">
+                <Dialog.Panel className="relative transform overflow-hidden bg-black transition-all w-screen h-screen">
                   <Swiper
-                    modules={[Virtual, Navigation, A11y]}
+                    modules={[Navigation, A11y]}
                     navigation
                     slidesPerView={1}
                     className="h-screen w-screen"
                     initialSlide={currentSlide}
-                    loop
+                    observer={true}
+                    observeParents={true}
+                    touchRatio={1}
+                    touchAngle={45}
+                    threshold={5}
+                    longSwipesRatio={0.5}
+                    speed={300}
                   >
                     {data?.items.map((item, index) => (
-                      <SwiperSlide key={item.name} virtualIndex={index}>
-                        <div className="flex h-screen items-center justify-center bg-black dark:bg-gray-700 dark:text-white">
+                      <SwiperSlide key={item.name}>
+                        <div className="flex h-screen items-center justify-center bg-black">
                           <img
                             src={item.preview}
                             alt={item.name}
-                            className="max-h-screen max-w-screen"
+                            className="max-h-screen max-w-full object-contain"
+                            loading="lazy"
                           />
                         </div>
                       </SwiperSlide>
@@ -325,11 +332,11 @@ const Gallery: NextPageWithLayout = () => {
                     />
                   </button>
                 </Dialog.Panel>
-              </Transition.Child>
+              </TransitionChild>
             </div>
           </div>
         </Dialog>
-      </Transition.Root>
+      </Transition>
     </>
   );
 };

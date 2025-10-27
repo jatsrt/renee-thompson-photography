@@ -37,7 +37,7 @@ const Home: NextPageWithLayout = () => {
               className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-8"
             >
               <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                <div className="group aspect-[10/7] block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={seniorsGradsPic}
@@ -45,7 +45,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-hidden"
+                    className="absolute inset-0 focus:outline-none"
                     href="/services/seniorsgrads"
                   >
                     <span className="sr-only">
@@ -58,7 +58,7 @@ const Home: NextPageWithLayout = () => {
                 </p>
               </li>
               <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                <div className="group aspect-[10/7] block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={eventsPic}
@@ -66,7 +66,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-hidden"
+                    className="absolute inset-0 focus:outline-none"
                     href="/services/events"
                   >
                     <span className="sr-only">View details for events</span>
@@ -77,7 +77,7 @@ const Home: NextPageWithLayout = () => {
                 </p>
               </li>
               <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                <div className="group aspect-[10/7] block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={familiesPic}
@@ -85,7 +85,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-hidden"
+                    className="absolute inset-0 focus:outline-none"
                     href="/services/childrenfamilies"
                   >
                     <span className="sr-only">
@@ -98,7 +98,7 @@ const Home: NextPageWithLayout = () => {
                 </p>
               </li>
               <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                <div className="group aspect-[10/7] block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={specialRequestsPic}
@@ -106,7 +106,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-hidden"
+                    className="absolute inset-0 focus:outline-none"
                     href="/services/specialrequests"
                   >
                     <span className="sr-only">
@@ -119,7 +119,7 @@ const Home: NextPageWithLayout = () => {
                 </p>
               </li>
               <li className="relative">
-                <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                <div className="group aspect-[10/7] block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                   <Image
                     className="pointer-events-none object-cover group-hover:opacity-75"
                     src={sportsPic}
@@ -127,7 +127,7 @@ const Home: NextPageWithLayout = () => {
                     placeholder="blur"
                   />
                   <Link
-                    className="absolute inset-0 focus:outline-hidden"
+                    className="absolute inset-0 focus:outline-none"
                     href="/services/sports"
                   >
                     <span className="sr-only">View details for sports</span>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { FacebookIcon, InstagramIcon } from "./Icons";
 
@@ -16,18 +15,20 @@ const Footer: React.FC = () => {
           &copy; 2023 Renee Thompson Photography. All rights reserved.
         </p>
         <p className="mt-4 text-base text-gray-200 md:order-0 md:mt-0 items-end flex flex-row">
-          <Link
+          <a
             href="https://www.facebook.com/ReneeThompsonPhotos"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <FacebookIcon className="h-6 w-6 shrink-0 text-gray-200" />
-          </Link>
-          <Link
+          </a>
+          <a
             href="https://www.instagram.com/ReneeThompsonPhotos"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <InstagramIcon className="h-6 w-6 shrink-0 text-gray-200 sm:ml-8" />
-          </Link>
+          </a>
         </p>
       </div>
     </footer>

@@ -2,7 +2,6 @@
 @plugin 'flowbite-react/plugin/tailwindcss';
 @source '../.flowbite-react/class-list.json';
 
-@plugin '@tailwindcss/aspect-ratio';
 @plugin '@tailwindcss/forms';
 @plugin 'flowbite/plugin';
 
