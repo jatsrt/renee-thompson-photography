@@ -18,7 +18,7 @@ import { Spinner, Tooltip } from "flowbite-react";
 import MediaPlayer from "../../components/MediaPlayer";
 // import Swiper from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, A11y } from "swiper/modules";
+import { Navigation, A11y, Virtual } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -293,15 +293,19 @@ const Gallery: NextPageWithLayout = () => {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden bg-black transition-all w-screen h-screen">
+                <Dialog.Panel className="relative overflow-hidden bg-black transition-all w-screen h-screen">
                   <Swiper
-                    modules={[Navigation, A11y]}
+                    modules={[Navigation, A11y, Virtual]}
                     navigation
                     slidesPerView={1}
                     className="h-screen w-screen"
                     initialSlide={currentSlide}
-                    observer={true}
-                    observeParents={true}
+                    virtual={{
+                      enabled: true,
+                      addSlidesBefore: 1,
+                      addSlidesAfter: 1,
+                    }}
+                    watchSlidesProgress={true}
                     touchRatio={1}
                     touchAngle={45}
                     threshold={5}
@@ -309,14 +313,15 @@ const Gallery: NextPageWithLayout = () => {
                     speed={300}
                   >
                     {data?.items.map((item, index) => (
-                      <SwiperSlide key={item.name}>
+                      <SwiperSlide key={item.name} virtualIndex={index}>
                         <div className="flex h-screen items-center justify-center bg-black">
                           <img
                             src={item.preview}
                             alt={item.name}
-                            className="max-h-screen max-w-full object-contain"
-                            loading="lazy"
+                            className="max-h-screen max-w-full object-contain swiper-lazy"
+                            data-src={item.preview}
                           />
+                          <div className="swiper-lazy-preloader"></div>
                         </div>
                       </SwiperSlide>
                     ))}
