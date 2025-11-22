@@ -219,6 +219,8 @@ const Gallery: NextPageWithLayout = () => {
                 <img
                   src={item.preview}
                   alt={item.name}
+                  loading="lazy"
+                  decoding="async"
                   className="pointer-events-none object-fit group-hover:opacity-75"
                 />
 
