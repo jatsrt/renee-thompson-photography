@@ -27,14 +27,14 @@ export class GalleryConstruct extends Construct {
     const hostedZone = route53.HostedZone.fromLookup(this, "zone", {
       domainName: "reneethompson.photos",
     });
-    const myCertificate = new acm.DnsValidatedCertificate(this, "cert", {
+    const myCertificate = new acm.Certificate(this, "cert", {
       domainName: "media.reneethompson.photos",
-      hostedZone,
+      validation: acm.CertificateValidation.fromDns(hostedZone),
     });
 
     const distribution = new cloudfront.Distribution(this, "dist", {
       defaultBehavior: {
-        origin: new origins.S3Origin(this.bucket),
+        origin: origins.S3BucketOrigin.withOriginAccessControl(this.bucket),
         allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
         originRequestPolicy: cloudfront.OriginRequestPolicy.CORS_S3_ORIGIN,
         responseHeadersPolicy:
