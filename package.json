@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "4.11.0",
-    "@aws-sdk/client-s3": "3.917.0",
-    "@aws-sdk/s3-request-presigner": "3.917.0",
+    "@auth0/nextjs-auth0": "^4.13.1",
+    "@aws-sdk/client-s3": "^3.937.0",
+    "@aws-sdk/s3-request-presigner": "^3.937.0",
     "@formspree/react": "3.0.0",
     "@headlessui/react": "2.2.9",
     "@heroicons/react": "2.2.0",
@@ -19,8 +19,8 @@
     "@types/node": "24.9.1",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
-    "axios": "1.12.2",
-    "eslint": "9.38.0",
+    "axios": "^1.13.2",
+    "eslint": "^9.39.1",
     "eslint-config-next": "15.5.6",
     "flowbite": "3.1.2",
     "flowbite-react": "^0.12.10",
